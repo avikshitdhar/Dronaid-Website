@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import logo from '../assets/team-logo.jpeg';
 
 /**
  * Navbar Component
@@ -28,10 +29,15 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">D</span>
-            </div>
-            <span className="text-white font-semibold text-lg">Drone Team</span>
+          <div className="w-30 h-20 bg-black rounded-lg flex items-center justify-center overflow-hidden">
+            <img
+              src={logo} 
+              alt="Dronaid Logo"
+              className="w-full h-full object-contain"
+            />
+          </div>
+
+            {/* <span className="text-white font-semibold text-lg">Dronaid</span> */}
           </Link>
 
           {/* Desktop Navigation */}

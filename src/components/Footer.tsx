@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Mail, Github } from 'lucide-react';
+import { Instagram, Linkedin, Mail, Github, LocateIcon } from 'lucide-react';
 
 /**
  * Footer Component
@@ -8,9 +8,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Github, href: '#', label: 'GitHub' },
+    { icon: Instagram, href: 'https://www.instagram.com/project.dronaid/', label: 'Instagram' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/dronaid/', label: 'LinkedIn' },
+    { icon: LocateIcon, href: 'https://maps.app.goo.gl/3airczvSRFsiEewx5', label: 'LinkedIn' },
+    // { icon: Github, href: '#', label: 'GitHub' },
     { icon: Mail, href: 'mailto:contact@droneteam.com', label: 'Email' },
   ];
 
@@ -36,7 +37,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <p className="text-gray-400 text-sm">
-            © {currentYear} Drone Team. All rights reserved.
+            © {currentYear} Dronaid | One Flight Saves Lives.
           </p>
         </div>
       </div>
