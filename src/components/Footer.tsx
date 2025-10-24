@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Mail, Github, LocateIcon } from 'lucide-react';
+import { Instagram, Linkedin, Mail, LocateIcon } from 'lucide-react';
 
 /**
  * Footer Component
@@ -11,7 +11,6 @@ const Footer = () => {
     { icon: Instagram, href: 'https://www.instagram.com/project.dronaid/', label: 'Instagram' },
     { icon: Linkedin, href: 'https://www.linkedin.com/company/dronaid/', label: 'LinkedIn' },
     { icon: LocateIcon, href: 'https://maps.app.goo.gl/3airczvSRFsiEewx5', label: 'LinkedIn' },
-    // { icon: Github, href: '#', label: 'GitHub' },
     { icon: Mail, href: 'mailto:contact@droneteam.com', label: 'Email' },
   ];
 
