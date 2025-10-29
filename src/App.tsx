@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Landing from './pages/Landing';
 import Drones from './pages/Drones';
-import Team from './pages/Team';
+import Team from './pages/team/Team';
 import Contact from './pages/Contact';
 import ApplyNow from './pages/ApplyNow';
 import Competitions from './pages/Competitions';
