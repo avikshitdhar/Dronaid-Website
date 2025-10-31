@@ -2,11 +2,11 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Landing from './pages/Landing';
-import Drones from './pages/Drones';
+import Drones from './pages/drones/drone';
 import Team from './pages/team/Team';
 import Contact from './pages/Contact';
 import ApplyNow from './pages/ApplyNow';
-import Competitions from './pages/Competitions';
+import Competitions from './pages/competitions/competitions';
 
 /**
  * Main App Component

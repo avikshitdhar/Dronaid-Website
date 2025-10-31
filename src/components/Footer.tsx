@@ -11,7 +11,7 @@ const Footer = () => {
     { icon: Instagram, href: 'https://www.instagram.com/project.dronaid/', label: 'Instagram' },
     { icon: Linkedin, href: 'https://www.linkedin.com/company/dronaid/', label: 'LinkedIn' },
     { icon: LocateIcon, href: 'https://maps.app.goo.gl/3airczvSRFsiEewx5', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:contact@droneteam.com', label: 'Email' },
+    { icon: Mail, href: 'mailto:dronaid.mit@gmail.com', label: 'Email' },
   ];
 
   return (

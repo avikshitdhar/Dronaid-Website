@@ -4,6 +4,7 @@ export interface TeamMember {
   department: string;
   image?: string;
   linkedin?: string;
+  github?: string;
   email?: string;
 }
 

@@ -6,11 +6,12 @@ export const teamMembers: TeamMember[] = [
     // Executive Board
     {
     name: "Tushar Bhat",
-    designation: "Team Captain",
+    designation: "Technical Head",
     department: "Executive Board",
     image: `${base}members/tushar.jpg`,
-    linkedin: "https://linkedin.com/in/tusharbhat",
-    email: "tushar@example.com",
+    linkedin: "http://www.linkedin.com/in/tusharbhat2005",
+    github: "https://github.com",
+    email: "tusharbhat2005@gmail.com",
     },
     {
     name: "Aarya Singh",
@@ -35,8 +36,8 @@ export const teamMembers: TeamMember[] = [
       designation: "AI Head",
       department: "Board",
       image: `${base}members/parag.jpg`,
-      linkedin: "https://linkedin.com/in/paraggupta",
-      email: "parag@example.com",
+      linkedin: "https://www.linkedin.com/in/parag-gupta-0b79b5290/",
+      email: "guptaparag2701@gmail.com",
     },
     {
       name: "Shashank Devadiga",
@@ -59,7 +60,7 @@ export const teamMembers: TeamMember[] = [
       designation: "Research Head",
       department: "Board",
       image: `${base}members/himanjali.jpg`,
-      linkedin: "https://linkedin.com/in/shashankdevadiga",
+      linkedin: "https://www.linkedin.com/in/himanjali-ganapa-9286432a9/",
       email: "shashank@example.com",
     },
 
@@ -81,13 +82,22 @@ export const teamMembers: TeamMember[] = [
       email: "varun@example.com",
     },
 
-    //AI
+    //AI & Automation
     {
       name: "Urja Srivastava",
       designation: "Team Member",
-      department: "AI",
+      department: "AI & Automation",
       image: `${base}members/urja.jpg`,
       linkedin: "https://linkedin.com/in/varun",
+      email: "varun@example.com",
+    },
+    {
+      name: "Javvaji Aditya Banasri",
+      designation: "Team Member",
+      department: "AI & Automation",
+      image: `${base}members/aditya.jpg`,
+      linkedin: "www.linkedin.com/in/adityabanasri",
+      github: "https://github.com/Banasri007",
       email: "varun@example.com",
     },
 
@@ -105,7 +115,7 @@ export const teamMembers: TeamMember[] = [
       designation: "Team Member",
       department: "DFM",
       image: `${base}members/hursh.jpg`,
-      linkedin: "https://linkedin.com/in/varun",
+      linkedin: "http://www.linkedin.com/in/hurshpai",
       email: "varun@example.com",
     },
 
@@ -115,8 +125,9 @@ export const teamMembers: TeamMember[] = [
       designation: "Team Member",
       department: "Software",
       image: `${base}members/avikshit.jpg`,
-      linkedin: "https://linkedin.com/in/varun",
-      email: "varun@example.com",
+      linkedin: "https://www.linkedin.com/in/avikshitdhar/",
+      github: "https://github.com/avikshitdhar",
+      email: "avikshitdhar75@gmail.com",
     },
 
     //management
