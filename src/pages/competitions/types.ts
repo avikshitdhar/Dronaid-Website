@@ -5,5 +5,8 @@ export interface Competition {
   description: string;
   achievements: string[];
   mediaCount: { images: number; videos: number };
-  image?: string; // optional if you want thumbnails later
+  media?: {
+    images?: string[];
+    videos?: string[];
+  };
 }

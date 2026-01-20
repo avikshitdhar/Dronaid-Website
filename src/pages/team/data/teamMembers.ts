@@ -18,18 +18,19 @@ export const teamMembers: TeamMember[] = [
     designation: "Team Manager",
     department: "Executive Board",
     image: `${base}members/aarya.jpg`,
-    linkedin: "https://linkedin.com/in/aaryasingh",
-    email: "aarya@example.com",
+    linkedin: "https://www.linkedin.com/in/aarya-singh-726836311?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    email: "aarya.r.singh2005@gmail.com",
     },
 
     // Board
     {
-      name: "Varun",
+      name: "Varun B",
       designation: "Electronics Head",
       department: "Board",
       image: `${base}members/varun.jpg`,
-      linkedin: "https://linkedin.com/in/varun",
-      email: "varun@example.com",
+      linkedin: "https://www.linkedin.com/in/varun-bramhankar-92a520271/",
+      email: "varunvpb@gmail.com",
+      github: "https://github.com/Varunvpb",
     },
     {
       name: "Parag Gupta",
@@ -44,7 +45,7 @@ export const teamMembers: TeamMember[] = [
       designation: "DFM Head",
       department: "Board",
       image: `${base}members/shashank.jpg`,
-      linkedin: "https://linkedin.com/in/shashankdevadiga",
+      linkedin: "https://www.linkedin.com/in/shashank-devadiga141105?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       email: "shashank@example.com",
     },
     {
@@ -57,11 +58,11 @@ export const teamMembers: TeamMember[] = [
     },
     {
       name: "Himanjali Ganapa",
-      designation: "Research Head",
+      designation: "Research and Publications Head",
       department: "Board",
       image: `${base}members/himanjali.jpg`,
       linkedin: "https://www.linkedin.com/in/himanjali-ganapa-9286432a9/",
-      email: "shashank@example.com",
+      email: "himanjaliganapa@gmail.com",
     },
 
     //Electronics
@@ -70,16 +71,24 @@ export const teamMembers: TeamMember[] = [
       designation: "Team Member",
       department: "Electronics",
       image: `${base}members/aditi.jpg`,
-      linkedin: "https://linkedin.com/in/varun",
-      email: "varun@example.com",
+      linkedin: "www.linkedin.com/in/aditi-nair-28b086305",
+      email: "aditinair0910@gmail.com",
     },
     {
       name: "Kevin Siby",
       designation: "Team Member",
       department: "Electronics",
       image: `${base}members/kevin.jpg`,
-      linkedin: "https://linkedin.com/in/varun",
-      email: "varun@example.com",
+      linkedin: "www.linkedin.com/in/kevin-siby-94a12b391",
+      email: "contactkevin2005@gmail.com",
+    },
+    {
+      name: "Aditi Tiwari",
+      designation: "Team Member",
+      department: "Electronics",
+      image: `${base}members/kevin.jpg`,
+      linkedin: "https://www.linkedin.com/in/aditi-tiwari-24ab34306/",
+      email: "aditi2005t@gmail.com",
     },
 
     //AI & Automation
@@ -88,8 +97,18 @@ export const teamMembers: TeamMember[] = [
       designation: "Team Member",
       department: "AI & Automation",
       image: `${base}members/urja.jpg`,
-      linkedin: "https://linkedin.com/in/varun",
+      linkedin: "https://www.linkedin.com/in/urjasrivastava/",
+      // email: "varun@example.com",
+      github: "https://github.com/carcked1t",
+    },
+    {
+      name: "Saurabh Bhardwaj",
+      designation: "Team Member",
+      department: "AI & Automation",
+      image: `${base}members/urja.jpg`,
+      // linkedin: "https://linkedin.com/in/varun",
       email: "varun@example.com",
+      github: "https://github.com/bhsaur",
     },
     {
       name: "Javvaji Aditya Banasri",
@@ -98,7 +117,7 @@ export const teamMembers: TeamMember[] = [
       image: `${base}members/aditya.jpg`,
       linkedin: "www.linkedin.com/in/adityabanasri",
       github: "https://github.com/Banasri007",
-      email: "varun@example.com",
+      // email: "varun@example.com",
     },
 
     //DFM
@@ -107,8 +126,8 @@ export const teamMembers: TeamMember[] = [
       designation: "Team Member",
       department: "DFM",
       image: `${base}members/laksh.jpg`,
-      linkedin: "https://linkedin.com/in/varun",
-      email: "varun@example.com",
+      linkedin: "https://www.linkedin.com/in/laksh-sashis-680847311?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      email: "lakshsashis@gmail.com",
     },
     {
       name: "Hursh Ramachandran Pai",
@@ -116,7 +135,23 @@ export const teamMembers: TeamMember[] = [
       department: "DFM",
       image: `${base}members/hursh.jpg`,
       linkedin: "http://www.linkedin.com/in/hurshpai",
-      email: "varun@example.com",
+      email: "paihurshr@gmail.com",
+    },
+    {
+      name: "Yuvraj Singh",
+      designation: "Team Member",
+      department: "DFM",
+      image: `${base}members/hursh.jpg`,
+      linkedin: "https://www.linkedin.com/in/yuvraj-singh-15870a32a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+      // email: "paihurshr@gmail.com",
+    },
+    {
+      name: "Sourajit Saha",
+      designation: "Team Member",
+      department: "DFM",
+      image: `${base}members/hursh.jpg`,
+      linkedin: "www.linkedin.com/in/sourajit-saha-9a006836b",
+      email: "sourajit.mitmpl2024@learner.manipal.edu",
     },
 
     //Software
@@ -132,12 +167,13 @@ export const teamMembers: TeamMember[] = [
 
     //management
     {
-      name: "Medha J",
+      name: "Medha Kalwar",
       designation: "Team Member",
       department: "Management",
       image: `${base}members/medha.jpg`,
-      linkedin: "https://linkedin.com/in/varun",
-      email: "varun@example.com",
+      linkedin: "https://www.linkedin.com/in/medha-kalwar-?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      email: "medhakalwar@gmail.com",
+      github: "https://github.com/medj-builds",
     },
     {
       name: "Devika",

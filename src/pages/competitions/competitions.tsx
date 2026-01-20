@@ -1,6 +1,5 @@
 import HeroSection from "./sections/heroSection";
 import CompetitionsGrid from "./sections/competitionsGrid";
-import CTASection from "./sections/ctaSection";
 
 const Competitions = () => {
   return (
@@ -10,9 +9,6 @@ const Competitions = () => {
 
       {/* Competitions Grid */}
       <CompetitionsGrid />
-
-      {/* CTA */}
-      <CTASection />
     </div>
   );
 };

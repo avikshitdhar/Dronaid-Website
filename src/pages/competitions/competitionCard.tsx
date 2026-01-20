@@ -46,30 +46,59 @@ const CompetitionCard = ({ competition }: CompetitionCardProps) => (
         </div>
       </div>
 
-      {/* Media */}
-      <div>
-        <h3 className="text-xl font-semibold text-white mb-4">Media Gallery</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {Array.from({ length: Math.min(competition.mediaCount.images, 3) }).map(
-            (_, i) => (
-              <div
-                key={`img-${i}`}
-                className="aspect-square bg-gray-800 rounded-lg flex items-center justify-center border border-gray-700 hover:border-blue-500 transition-colors cursor-pointer"
-              >
-                <Image size={48} className="text-gray-600" />
-              </div>
-            )
-          )}
-          {competition.mediaCount.videos > 0 && (
-            <div className="aspect-square bg-gray-800 rounded-lg flex items-center justify-center border border-gray-700 hover:border-blue-500 transition-colors cursor-pointer">
-              <Video size={48} className="text-gray-600" />
-            </div>
-          )}
+        {/* Media */}
+        <div>
+          <h3 className="text-xl font-semibold text-white mb-4">Media Gallery</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {competition.media?.images && competition.media.images.length > 0 ? (
+              competition.media.images.slice(0, 4).map((img, i) => (
+                <div
+                  key={`img-${i}`}
+                  className="aspect-square rounded-lg overflow-hidden border border-gray-700 hover:border-blue-500 transition-all duration-300 cursor-pointer"
+                >
+                  <img
+                    src={img}
+                    alt={`${competition.name} ${i + 1}`}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              ))
+            ) : (
+              Array.from({ length: Math.min(competition.mediaCount.images, 3) }).map(
+                (_, i) => (
+                  <div
+                    key={`placeholder-${i}`}
+                    className="aspect-square bg-gray-800 rounded-lg flex items-center justify-center border border-gray-700 hover:border-blue-500 transition-colors"
+                  >
+                    <Image size={48} className="text-gray-600" />
+                  </div>
+                )
+              )
+            )}
+
+            {competition.media?.videos && competition.media.videos.length > 0 ? (
+              competition.media.videos.slice(0, 1).map((vid, i) => (
+                <video
+                  key={`vid-${i}`}
+                  src={vid}
+                  controls
+                  className="aspect-square rounded-lg border border-gray-700 hover:border-blue-500 transition-all duration-300"
+                />
+              ))
+            ) : (
+              competition.mediaCount.videos > 0 && (
+                <div className="aspect-square bg-gray-800 rounded-lg flex items-center justify-center border border-gray-700 hover:border-blue-500 transition-colors cursor-pointer">
+                  <Video size={48} className="text-gray-600" />
+                </div>
+              )
+            )}
+          </div>
+
+          <p className="text-gray-400 text-sm mt-3">
+            {competition.mediaCount.images} photos • {competition.mediaCount.videos} videos
+          </p>
         </div>
-        <p className="text-gray-400 text-sm mt-3">
-          {competition.mediaCount.images} photos • {competition.mediaCount.videos} videos
-        </p>
-      </div>
+
     </div>
   </div>
 );
