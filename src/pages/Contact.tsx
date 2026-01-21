@@ -1,12 +1,18 @@
-import { Mail, MapPin, Phone, Instagram, Linkedin, Twitter, Github } from 'lucide-react';
-import { useState, FormEvent } from 'react';
+import { Mail, MapPin, Phone, Instagram, Linkedin, Facebook } from 'lucide-react';
+import { useState, FormEvent, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 
 /**
  * Contact Page
- * Social media links and contact form (frontend only, no API)
+ * EmailJS integration for sending emails
  */
 
 const Contact = () => {
+  useEffect(() => {
+    // Initialize EmailJS with your Public Key
+    // Get your Public Key from: https://dashboard.emailjs.com/admin/account
+    emailjs.init('wME5PplhO5SGCSlt0');
+  }, []);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -15,15 +21,36 @@ const Contact = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    // Frontend only - just show success message
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 3000);
+    setError('');
+
+    const templateParams = {
+      to_email: 'dronaid.mit@gmail.com', // Email where you want to receive messages
+      name: formData.name,
+      email: formData.email,
+      subject: formData.subject,
+      time: new Date().toLocaleString(),
+      message: formData.message,
+    };
+
+    emailjs
+      .send(
+        'service_6cau1ad', // Your EmailJS Service ID
+        'template_h7mn2sa', // Your EmailJS Template ID
+        templateParams
+      )
+      .then((response) => {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => setSubmitted(false), 3000);
+      })
+      .catch((err) => {
+        console.error('EmailJS error:', err);
+        setError('Failed to send message. Please try again.');
+      });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -37,25 +64,19 @@ const Contact = () => {
     {
       name: 'Instagram',
       icon: Instagram,
-      url: 'https://instagram.com/droneteam',
+      url: 'https://www.instagram.com/project.dronaid/',
       color: 'hover:text-pink-500',
     },
     {
       name: 'LinkedIn',
       icon: Linkedin,
-      url: 'https://linkedin.com/company/droneteam',
+      url: 'https://www.linkedin.com/company/dronaid/',
       color: 'hover:text-blue-500',
     },
     {
-      name: 'Twitter',
-      icon: Twitter,
-      url: 'https://twitter.com/droneteam',
-      color: 'hover:text-sky-500',
-    },
-    {
-      name: 'GitHub',
-      icon: Github,
-      url: 'https://github.com/droneteam',
+      name: 'Facebook',
+      icon: Facebook,
+      url: 'https://www.facebook.com/dronaid.care/',
       color: 'hover:text-gray-400',
     },
   ];
@@ -64,19 +85,21 @@ const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'contact@droneteam.com',
-      link: 'mailto:contact@droneteam.com',
+      value: 'dronaid.mit@gmail.com',
+      link: 'mailto:dronaid.mit@gmail.com',
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
+      items: [
+        { value: 'Aarya: +91 6261145225', link: 'tel:+916261145225' },
+        { value: 'Tushar: +91 9446211196', link: 'tel:+919446211196' },
+      ],
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'Innovation Hub, Tech City, USA',
+      value: 'Manipal Institute of Technology, Manipal, India',
       link: null,
     },
   ];
@@ -108,7 +131,19 @@ const Contact = () => {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-white font-semibold mb-1">{info.label}</h3>
-                    {info.link ? (
+                    {info.items ? (
+                      <div className="space-y-1">
+                        {info.items.map((item, itemIndex) => (
+                          <a
+                            key={itemIndex}
+                            href={item.link}
+                            className="block text-gray-300 hover:text-blue-400 transition-colors"
+                          >
+                            {item.value}
+                          </a>
+                        ))}
+                      </div>
+                    ) : info.link ? (
                       <a
                         href={info.link}
                         className="text-gray-300 hover:text-blue-400 transition-colors"
@@ -218,6 +253,12 @@ const Contact = () => {
               >
                 {submitted ? 'Message Sent!' : 'Send Message'}
               </button>
+
+              {error && (
+                <p className="text-red-400 text-center">
+                  {error}
+                </p>
+              )}
 
               {submitted && (
                 <p className="text-green-400 text-center">
