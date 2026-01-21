@@ -3,11 +3,6 @@ import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import logo from '/team-logo.jpeg';
 
-/**
- * Navbar Component
- * Displays navigation links with mobile responsive menu
- * Highlights active route
- */
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -24,33 +19,31 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm z-50 border-b border-gray-800">
+    <nav className="fixed top-0 w-full bg-black z-50 border-b border-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
+          
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-          <div className="w-30 h-20 bg-black rounded-lg flex items-center justify-center overflow-hidden">
+          <Link to="/" className="flex items-center">
             <img
-              src={logo} 
+              src={logo}
               alt="Dronaid Logo"
-              className="w-full h-full object-contain"
+              className="h-10 w-auto object-contain"
             />
-          </div>
-
-            {/* <span className="text-white font-semibold text-lg">Dronaid</span> */}
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-1">
+          <div className="hidden md:flex space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-4 py-2 rounded-lg transition-colors ${
-                  isActive(link.path)
-                    ? 'bg-blue-600 text-white'
-                    : 'text-gray-300 hover:bg-gray-800 hover:text-white'
-                }`}
+                className={`text-sm font-medium transition-colors
+                  ${
+                    isActive(link.path)
+                      ? 'text-blue-600'
+                      : 'text-white hover:text-blue-600'
+                  }`}
               >
                 {link.label}
               </Link>
@@ -60,7 +53,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-gray-300 hover:text-white"
+            className="md:hidden text-gray-700 hover:text-blue-600"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -68,17 +61,18 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden pb-4">
+          <div className="md:hidden flex flex-col border-t border-gray-200">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block px-4 py-2 rounded-lg transition-colors ${
-                  isActive(link.path)
-                    ? 'bg-blue-600 text-white'
-                    : 'text-gray-300 hover:bg-gray-800 hover:text-white'
-                }`}
+                className={`px-4 py-3 text-sm font-medium transition-colors
+                  ${
+                    isActive(link.path)
+                      ? 'text-blue-600'
+                      : 'text-gray-700 hover:text-blue-600'
+                  }`}
               >
                 {link.label}
               </Link>

@@ -9,7 +9,7 @@ const AlumniSection = ({ alumniByYear }: AlumniSectionProps) => {
   const sortedYears = Object.keys(alumniByYear).sort((a, b) => Number(b) - Number(a));
 
   return (
-    <section className="bg-gray-950 py-16">
+    <section className="bg-black py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-white mb-6 text-center">Our Alumni</h2>
         <p className="text-gray-300 text-center mb-12 max-w-3xl mx-auto">

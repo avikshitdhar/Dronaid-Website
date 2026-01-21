@@ -13,11 +13,11 @@ const Team = () => {
   }, {});
 
   return (
-    <div className="min-h-screen bg-[#2e282a] pt-16">
+    <div className="min-h-screen bg-[#000000] pt-16">
       <HeroSection />
       <TeamGrid groupedMembers={groupedMembers} />
       <AlumniSection alumniByYear={alumniByYear} />
-      <CTASection />
+      {/* <CTASection /> */}
     </div>
   );
 };

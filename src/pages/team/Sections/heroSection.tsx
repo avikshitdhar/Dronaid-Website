@@ -9,20 +9,17 @@ const HeroSection = () => {
     if (section) section.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Parallax setup
   const ref = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 100]); // moves 100px as you scroll
+  const y = useTransform(scrollY, [0, 500], [0, 100]);
 
   return (
     <div
       ref={ref}
       className="relative flex flex-col items-center justify-center overflow-hidden z-0"
-      style={{
-        height: "calc(100dvh - 4rem)",
-      }}
+      style={{ height: "calc(100dvh - 4rem)" }}
     >
-      {/* Background Image with Parallax */}
+      {/* Background Image */}
       <motion.div
         style={{
           backgroundImage: `url(${team})`,
@@ -39,24 +36,13 @@ const HeroSection = () => {
       {/* Foreground Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center h-full">
         <h1 className="text-6xl font-bold text-white mb-6 drop-shadow-lg">
-          Meet Our Team
+          Meet Our{" "}
+          <span className="text-blue-600">Team</span>
         </h1>
+
         <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
           A dedicated group of innovators pushing the boundaries of drone technology
         </p>
-
-        {/* Animated Down Arrow */}
-        <motion.div
-          onClick={scrollToTeam}
-          animate={{ y: [0, 12, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-          className="absolute bottom-[calc(1.5rem+env(safe-area-inset-bottom))] flex justify-center cursor-pointer"
-        >
-          <ArrowDown
-            size={42}
-            className="text-white hover:text-blue-400 transition-colors"
-          />
-        </motion.div>
       </div>
     </div>
   );

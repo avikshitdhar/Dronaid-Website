@@ -34,7 +34,7 @@ const TeamGrid = ({ groupedMembers }: Props) => {
                   stiffness: 10000,
                   duration: 0.02,
                 }}
-                className="bg-black rounded-xl p-6 flex flex-col items-center justify-center text-center border border-black w-64 h-80 cursor-pointer hover:border-white transition-all duration-300"
+                className="bg-white rounded-xl p-6 flex flex-col items-center justify-center text-center border border-black w-64 h-80 cursor-pointer hover:border-white transition-all duration-300"
               >
                 {/* Profile Image */}
                 <motion.div
@@ -70,7 +70,7 @@ const TeamGrid = ({ groupedMembers }: Props) => {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.2 }}
                       transition={{ duration: 0.05 }}
-                      className="text-white hover:text-blue-500 transition-colors duration-200"
+                      className="text-black hover:text-blue-500 transition-colors duration-200"
                     >
                       <Linkedin size={20} />
                     </motion.a>
@@ -82,7 +82,7 @@ const TeamGrid = ({ groupedMembers }: Props) => {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.2 }}
                       transition={{ duration: 0.05 }}
-                      className="text-white hover:text-blue-500 transition-colors duration-200"
+                      className="text-black hover:text-blue-500 transition-colors duration-200"
                     >
                       <Github size={20} />
                     </motion.a>
@@ -92,7 +92,7 @@ const TeamGrid = ({ groupedMembers }: Props) => {
                       href={`mailto:${member.email}`}
                       whileHover={{ scale: 1.2 }}
                       transition={{ duration: 0.05 }}
-                      className="text-white hover:text-blue-400 transition-colors duration-200"
+                      className="text-black hover:text-blue-400 transition-colors duration-200"
                     >
                       <Mail size={20} />
                     </motion.a>
