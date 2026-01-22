@@ -1,11 +1,16 @@
 import DroneCard from "./droneCard";
 import { droneProjects } from "./data/droneData";
+import DroneModal from "./droneModal";
+import { DroneProject } from "./types";
+
 import { useRef, useEffect, useState } from "react";
 import * as THREE from "three";
 
 const base = import.meta.env.BASE_URL;
 
+
 const Drones = () => {
+  const [selectedDrone, setSelectedDrone] = useState<DroneProject | null>(null);
   const dronesRef = useRef<HTMLDivElement | null>(null);
   const vantaRef = useRef<HTMLDivElement | null>(null);
   const vantaEffect = useRef<any>(null);
@@ -80,7 +85,7 @@ const Drones = () => {
       <div className="relative h-screen flex flex-col justify-center items-center px-4">
         <div className="z-20 text-center space-y-4 md:space-y-6">
           <p className="text-sm md:text-base tracking-widest uppercase text-gray-400 font-medium">
-            Autonomous Drones For Medical Deliveries
+            One Flight Saves Lives
           </p>
 
           <h1 className="text-5xl md:text-7xl font-light text-white leading-tight tracking-tight max-w-4xl mx-auto">
@@ -105,7 +110,7 @@ const Drones = () => {
           </p>
         </div>
 
-        <div className="absolute bottom-10 left-0 right-0 flex justify-center z-30">
+        {/* <div className="absolute bottom-10 left-0 right-0 flex justify-center z-30">
           <button
             onClick={scrollToDrones}
             className="group relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-white rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-cyan-800 transition duration-300"
@@ -114,19 +119,39 @@ const Drones = () => {
               Explore Our Fleet
             </span>
           </button>
-        </div>
+        </div> */}
       </div>
       {/* ---------------- END HERO ---------------- */}
 
       {/* ---------------- DRONE PROJECTS ---------------- */}
-      <div
+      {/* <div
         ref={dronesRef}
         className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20"
       >
         {droneProjects.map((drone, i) => (
           <DroneCard key={i} drone={drone} reverse={i % 2 !== 0} />
         ))}
-      </div>
+      </div> */}
+      <div
+  ref={dronesRef}
+  className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
+>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+    {droneProjects.map((drone, i) => (
+      <DroneCard
+        key={i}
+        drone={drone}
+        onClick={() => setSelectedDrone(drone)}
+      />
+    ))}
+  </div>
+</div>
+
+<DroneModal
+  drone={selectedDrone}
+  onClose={() => setSelectedDrone(null)}
+/>
+
       {/* ---------------- END PROJECTS ---------------- */}
     </div>
   );

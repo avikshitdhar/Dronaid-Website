@@ -1,7 +1,6 @@
 import HeroSection from "./Sections/heroSection";
 import TeamGrid from "./Sections/TeamGrid";
 import AlumniSection from "./Sections/alumniSection";
-import CTASection from "./Sections/ctaSection";
 import { teamMembers } from "./data/teamMembers";
 import { alumniByYear } from "./data/alumniData";
 
@@ -17,7 +16,6 @@ const Team = () => {
       <HeroSection />
       <TeamGrid groupedMembers={groupedMembers} />
       <AlumniSection alumniByYear={alumniByYear} />
-      {/* <CTASection /> */}
     </div>
   );
 };

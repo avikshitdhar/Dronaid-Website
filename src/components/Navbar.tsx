@@ -12,8 +12,7 @@ const Navbar = () => {
     { path: '/drones', label: 'Drones' },
     { path: '/team', label: 'Team' },
     { path: '/competitions', label: 'Competitions' },
-    { path: '/contact', label: 'Contact' },
-    { path: '/apply', label: 'Apply Now' },
+    { path: '/contact', label: 'Contact Us' },
   ];
 
   const isActive = (path: string) => location.pathname === path;

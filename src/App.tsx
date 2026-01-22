@@ -5,7 +5,6 @@ import Landing from './pages/Landing';
 import Drones from './pages/drones/drone';
 import Team from './pages/team/Team';
 import Contact from './pages/Contact';
-import ApplyNow from './pages/ApplyNow';
 import Competitions from './pages/competitions/competitions';
 
 /**
@@ -24,7 +23,6 @@ function App() {
             <Route path="/team" element={<Team />} />
             <Route path="/competitions" element={<Competitions />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/apply" element={<ApplyNow />} />
           </Routes>
         </main>
         <Footer />

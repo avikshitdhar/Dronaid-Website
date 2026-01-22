@@ -1,13 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowDown } from "lucide-react";
 import team from "/team-photo.jpg";
 
 const HeroSection = () => {
-  const scrollToTeam = () => {
-    const section = document.getElementById("team-section");
-    if (section) section.scrollIntoView({ behavior: "smooth" });
-  };
 
   const ref = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
