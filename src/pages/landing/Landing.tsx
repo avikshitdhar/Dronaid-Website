@@ -1,7 +1,7 @@
-import Home from '../sections/Home';
-import About from '../sections/About';
-import Ambitions from '../sections/Ambitions';
-import Sponsors from '../sections/Sponsors';
+import Home from './Home';
+import About from './About';
+import Ambitions from './Ambitions';
+import Sponsors from './Sponsors';
 
 /**
  * Landing Page
