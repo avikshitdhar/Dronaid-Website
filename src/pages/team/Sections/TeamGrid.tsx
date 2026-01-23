@@ -162,7 +162,7 @@ const TeamGrid = ({ groupedMembers }: Props) => {
             whileHover={{ scale: 1.05, y: -6 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="
-              bg-white rounded-xl p-6 
+              bg-gray-950 rounded-xl p-6 
               flex flex-col items-center justify-center text-center
               border border-black 
               h-80 cursor-pointer
@@ -170,7 +170,7 @@ const TeamGrid = ({ groupedMembers }: Props) => {
               will-change-transform
             "
           >
-            {/* Profile Image */}
+            {/* Profile Image */} 
             <motion.div
               whileHover={{ scale: 1.05, rotate: 1 }}
               transition={{ duration: 0.25 }}
@@ -204,7 +204,7 @@ const TeamGrid = ({ groupedMembers }: Props) => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.2 }}
                   transition={{ duration: 0.15 }}
-                  className="text-black hover:text-blue-500 transition-colors"
+                  className="text-white hover:text-blue-500 transition-colors"
                 >
                   <Linkedin size={20} />
                 </motion.a>
@@ -217,7 +217,7 @@ const TeamGrid = ({ groupedMembers }: Props) => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.2 }}
                   transition={{ duration: 0.15 }}
-                  className="text-black hover:text-blue-500 transition-colors"
+                  className="text-white hover:text-blue-500 transition-colors"
                 >
                   <Github size={20} />
                 </motion.a>
@@ -228,7 +228,7 @@ const TeamGrid = ({ groupedMembers }: Props) => {
                   href={`mailto:${member.email}`}
                   whileHover={{ scale: 1.2 }}
                   transition={{ duration: 0.15 }}
-                  className="text-black hover:text-blue-400 transition-colors"
+                  className="text-white hover:text-blue-400 transition-colors"
                 >
                   <Mail size={20} />
                 </motion.a>

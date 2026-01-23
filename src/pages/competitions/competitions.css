@@ -1,0 +1,21 @@
+/* Page root */
+.competitions-page {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Hide horizontal scrollbar inside scroller */
+.competitions-page .scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.competitions-page canvas {
+  max-width: 100%;
+  width: 100%;
+  left: 0;
+}
+
+.competitions-page .scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

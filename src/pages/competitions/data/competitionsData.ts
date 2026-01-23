@@ -14,14 +14,10 @@ export const competitions: Competition[] = [
     ],
     media: {
       images: [
-        `${base}competitions/25/quarks1.jpg`,
         `${base}competitions/25/quarks2.jpg`,
-      ],
-      videos:[
-        
+        `${base}competitions/25/quarks1.jpg`,
       ],
     },
-    mediaCount: { images: 8, videos: 3 },
   },
   {
     name: "UAS Challenge 2024",
@@ -40,11 +36,7 @@ export const competitions: Competition[] = [
         `${base}competitions/24/UAS1.jpg`,
         `${base}competitions/24/UAS2.png`,
       ],
-      videos:[
-        
-      ],
     },
-    mediaCount: { images: 12, videos: 5 },
   },
   {
     name: "Vayurvya RotorCraft Multirotor Competition",
@@ -60,11 +52,7 @@ export const competitions: Competition[] = [
         `${base}competitions/24/Vayu1.jpg`,
         `${base}competitions/24/Vayu2.jpg`,
       ],
-      videos:[
-        
-      ],
     },
-    mediaCount: { images: 10, videos: 2 },
   },
   {
     name: "Startup Expo - UDGAM 2024",
@@ -77,14 +65,10 @@ export const competitions: Competition[] = [
     ],
     media: {
       images: [
-        `${base}competitions/24/UDG1.jpg`,
         `${base}competitions/24/UDG2.jpg`,
-      ],
-      videos:[
-        
+        `${base}competitions/24/UDG1.jpg`,
       ],
     },
-    mediaCount: { images: 6, videos: 4 },
   },
   {
     name: "Mangaluru Blue 2023",
@@ -100,11 +84,7 @@ export const competitions: Competition[] = [
         `${base}competitions/23/blue1.jpg`,
         `${base}competitions/23/blue2.jpg`,
       ],
-      videos:[
-        
-      ],
     },
-    mediaCount: { images: 6, videos: 4 },
   },
   {
     name: "Elicit Expo 2023",
@@ -117,14 +97,10 @@ export const competitions: Competition[] = [
     ],
     media: {
       images: [
-        `${base}competitions/23/elicit1.jpg`,
         `${base}competitions/23/elicit2.jpg`,
-      ],
-      videos:[
-        
+        `${base}competitions/23/elicit1.jpg`,
       ],
     },
-    mediaCount: { images: 6, videos: 4 },
   },
   {
     name: "UAS Challenge 2023",
@@ -144,11 +120,7 @@ export const competitions: Competition[] = [
         `${base}competitions/23/UAS1.jpg`,
         `${base}competitions/23/UAS2.jpg`,
       ],
-      videos:[
-        
-      ],
     },
-    mediaCount: { images: 6, videos: 4 },
   },
   {
     name: "TechnoXian WRC 22",
@@ -161,13 +133,9 @@ export const competitions: Competition[] = [
     ],
     media: {
       images: [
-        `${base}competitions/22/techno1.jpg`,
         `${base}competitions/22/techno2.jpg`,
-      ],
-      videos:[
-        
+        `${base}competitions/22/techno1.jpg`,
       ],
     },
-    mediaCount: { images: 6, videos: 4 },
   },
 ];

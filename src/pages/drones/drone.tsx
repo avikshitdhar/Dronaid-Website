@@ -6,9 +6,6 @@ import { DroneProject } from "./types";
 import { useRef, useEffect, useState } from "react";
 import * as THREE from "three";
 
-const base = import.meta.env.BASE_URL;
-
-
 const Drones = () => {
   const [selectedDrone, setSelectedDrone] = useState<DroneProject | null>(null);
   const dronesRef = useRef<HTMLDivElement | null>(null);
@@ -32,12 +29,6 @@ const Drones = () => {
     return () => clearInterval(interval);
   }, []);
   /* ----------------------------------------------------------- */
-
-  const scrollToDrones = () => {
-    setTimeout(() => {
-      dronesRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
-  };
 
   useEffect(() => {
     const script = document.createElement("script");

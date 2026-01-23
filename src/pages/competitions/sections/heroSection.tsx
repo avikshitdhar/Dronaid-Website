@@ -1,17 +1,38 @@
-import { Trophy } from "lucide-react";
-
-const HeroSection = () => {
+const CompetitionHero = () => {
   return (
-    <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <Trophy size={64} className="text-yellow-500 mx-auto mb-4" />
-        <h1 className="text-5xl font-bold text-white mb-4">Our Competitions</h1>
-        <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-          Celebrating our achievements and experiences in drone competitions worldwide
-        </p>
+    <section className="relative h-[65vh] text-white ">
+      {/* Dark background / overlay */}
+      <div className="absolute inset-0  z-0" />
+
+      {/* Content */}
+      <div className="relative z-10 flex h-full items-center">
+        <div className="max-w-7xl mx-auto px-6 w-full">
+          <div className="max-w-4xl animate-slideUp">
+            {/* Eyebrow */}
+            <p className="text-sm tracking-[0.3em] uppercase text-gray-400 mb-6">
+              Global Competitive Track Record
+            </p>
+
+            {/* Heading */}
+            <h1 className="text-5xl md:text-6xl xl:text-7xl font-light leading-tight mb-8">
+              Engineering Success <br />
+              <span className="text-gray-200 font-normal">
+                Across International Competitions
+              </span>
+            </h1>
+
+            {/* Subtext */}
+            <p className="text-lg md:text-xl text-gray-300 font-extralight leading-relaxed max-w-2xl">
+              A showcase of our performance in international UAV, aerospace,
+              and innovation challenges - where real-world flight capability,
+              design excellence, and execution define outcomes.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default HeroSection;
+export default CompetitionHero;
+

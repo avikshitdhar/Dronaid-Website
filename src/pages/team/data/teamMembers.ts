@@ -66,7 +66,7 @@ export const teamMembers: TeamMember[] = [
     //Electronics
     {
       name: "Aditi Nair",
-      designation: "Team Member",
+      designation: "Electronics Team Member",
       department: "Electronics",
       image: `${base}members/aditi.jpg`,
       linkedin: "www.linkedin.com/in/aditi-nair-28b086305",
@@ -74,7 +74,7 @@ export const teamMembers: TeamMember[] = [
     },
     {
       name: "Kevin Siby",
-      designation: "Team Member",
+      designation: "Electronics Team Member",
       department: "Electronics",
       image: `${base}members/kevin.jpg`,
       linkedin: "www.linkedin.com/in/kevin-siby-94a12b391",
@@ -82,7 +82,7 @@ export const teamMembers: TeamMember[] = [
     },
     {
       name: "Aditi Tiwari",
-      designation: "Team Member",
+      designation: "Electronics Team Member",
       department: "Electronics",
       image: `${base}members/aditiT.jpg`,
       linkedin: "https://www.linkedin.com/in/aditi-tiwari-24ab34306/",
@@ -91,7 +91,7 @@ export const teamMembers: TeamMember[] = [
 
     {
       name: "Saksham Srivastava",
-      designation: "Team Member",
+      designation: "Electronics Team Member",
       department: "Electronics",
       image: `${base}members/saksham.jpg`,
       linkedin: "https://www.linkedin.com/in/saksham-srivastava-a8537a308?utm_source=share_via&utm_content=profile&utm_medium=member_android",
@@ -100,7 +100,7 @@ export const teamMembers: TeamMember[] = [
     //AI & Automation
     {
       name: "Urja Srivastava",
-      designation: "Team Member",
+      designation: "AI & Automation Team Member",
       department: "AI & Automation",
       image: `${base}members/urja.jpg`,
       linkedin: "https://www.linkedin.com/in/urjasrivastava/",
@@ -108,7 +108,7 @@ export const teamMembers: TeamMember[] = [
     },
     {
       name: "Saurabh Bhardwaj",
-      designation: "Team Member",
+      designation: "AI & Automation Team Member",
       department: "AI & Automation",
       image: `${base}members/saurabh.jpg`,
       email: "varun@example.com",
@@ -116,17 +116,42 @@ export const teamMembers: TeamMember[] = [
     },
     {
       name: "Javvaji Aditya Banasri",
-      designation: "Team Member",
+      designation: "AI & Automation Team Member",
       department: "AI & Automation",
       image: `${base}members/aditya.jpg`,
       linkedin: "www.linkedin.com/in/adityabanasri",
       github: "https://github.com/Banasri007",
     },
+    {
+      name: "Sidhartha Reddy Tukkani",
+      designation: "AI & Automation Team Member",
+      department: "AI & Automation",
+      image: `${base}members/sidhartha.jpg`,
+      linkedin: "https://www.linkedin.com/in/sidhartha-reddy-tukkani-2825a2387/",
+      email: "sidhu.tukkani@gmail.com",
+      github: "https://github.com/sidhutukkani-alt",
+    },
+    {
+      name: "Mahek Gupta",
+      designation: "AI & Automation Team Member",
+      department: "AI & Automation",
+      image: `${base}members/mahek.jpg`,
+      linkedin: "www.linkedin.com/in/mahek-gupta-ab23b5331",
+      email: "mahekg819@gmail.com",
+      github: "https://github.com/bluecode-hub",
+    },
+    {
+      name: "Shaurya Raizada",
+      designation: "AI & Automation Team Member",
+      department: "AI & Automation",
+      image: `${base}members/shaurya.jpeg`,
+      github: "https://github.com/ShauryaRaizada007",
+    },
 
     //DFM
     {
       name: "Laksh Sashis",
-      designation: "Team Member",
+      designation: "DFM Team Member",
       department: "DFM",
       image: `${base}members/laksh.jpg`,
       linkedin: "https://www.linkedin.com/in/laksh-sashis-680847311?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -134,7 +159,7 @@ export const teamMembers: TeamMember[] = [
     },
     {
       name: "Hursh Ramachandran Pai",
-      designation: "Team Member",
+      designation: "DFM Team Member",
       department: "DFM",
       image: `${base}members/hursh.jpg`,
       linkedin: "http://www.linkedin.com/in/hurshpai",
@@ -142,14 +167,14 @@ export const teamMembers: TeamMember[] = [
     },
     {
       name: "Yuvraj Singh",
-      designation: "Team Member",
+      designation: "DFM Team Member",
       department: "DFM",
       image: `${base}members/yuvraj.jpg`,
       linkedin: "https://www.linkedin.com/in/yuvraj-singh-15870a32a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     },
     {
       name: "Sourajit Saha",
-      designation: "Team Member",
+      designation: "DFM Team Member",
       department: "DFM",
       image: `${base}members/sourajit.jpg`,
       linkedin: "www.linkedin.com/in/sourajit-saha-9a006836b",
@@ -157,7 +182,7 @@ export const teamMembers: TeamMember[] = [
     },
     {
       name: "Vedanta Krishna Rao P",
-      designation: "Team Member",
+      designation: "DFM Team Member",
       department: "DFM",
       image: `${base}members/vedanta.jpg`,
       email: "vedantakrishna44@gmail.com",
@@ -166,7 +191,7 @@ export const teamMembers: TeamMember[] = [
     //Software
     {
       name: "Avikshit Dhar",
-      designation: "Team Member",
+      designation: "Software Team Member",
       department: "Software",
       image: `${base}members/avikshit.jpg`,
       linkedin: "https://www.linkedin.com/in/avikshitdhar/",
@@ -177,7 +202,7 @@ export const teamMembers: TeamMember[] = [
     //management
     {
       name: "Medha Kalwar",
-      designation: "Team Member",
+      designation: "Management Team Member",
       department: "Management",
       image: `${base}members/medha.jpeg`,
       linkedin: "https://www.linkedin.com/in/medha-kalwar-?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -186,10 +211,8 @@ export const teamMembers: TeamMember[] = [
     },
     {
       name: "Devika",
-      designation: "Team Member",
+      designation: "Management Team Member",
       department: "Management",
       image: `${base}members/devika.jpg`,
-      // linkedin: "https://linkedin.com/in/varun",
-      // email: "varun@example.com",
     },
 ];

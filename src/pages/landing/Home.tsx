@@ -111,7 +111,7 @@ const Home = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 3.2, duration: 0.8 }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 mt-20"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 mt-10"
         >
           Innovating Aerial Excellence
         </motion.h1>
@@ -136,7 +136,7 @@ const Home = () => {
             to="/apply"
             className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors group"
           >
-            Join Our Team
+            About us
             <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
           </Link>
           <Link
@@ -144,7 +144,7 @@ const Home = () => {
             className="inline-flex items-center justify-center px-8 py-4 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-semibold transition-colors"
           >
             <Play className="mr-2" size={20} />
-            View Projects
+            Our Fleet
           </Link>
         </motion.div>
 
