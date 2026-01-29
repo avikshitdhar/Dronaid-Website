@@ -1,4 +1,4 @@
-import { Trophy, Calendar, MapPin, Image as ImageIcon, ChevronLeft, Award, Zap } from "lucide-react";
+import { Calendar, MapPin, Image as ImageIcon, ChevronLeft, Award, Zap } from "lucide-react";
 import { Competition } from "./types";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
