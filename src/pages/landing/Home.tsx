@@ -133,10 +133,10 @@ const Home = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Link
-            to="/apply"
+            to="/competitions"
             className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors group"
           >
-            About us
+            Our Achievements
             <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
           </Link>
           <Link

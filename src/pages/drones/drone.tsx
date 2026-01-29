@@ -100,48 +100,31 @@ const Drones = () => {
             and groundbreaking infrastructure mapping.
           </p>
         </div>
-
-        {/* <div className="absolute bottom-10 left-0 right-0 flex justify-center z-30">
-          <button
-            onClick={scrollToDrones}
-            className="group relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-white rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-cyan-800 transition duration-300"
-          >
-            <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-black rounded-full group-hover:bg-opacity-0">
-              Explore Our Fleet
-            </span>
-          </button>
-        </div> */}
       </div>
       {/* ---------------- END HERO ---------------- */}
 
       {/* ---------------- DRONE PROJECTS ---------------- */}
-      {/* <div
-        ref={dronesRef}
-        className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20"
-      >
-        {droneProjects.map((drone, i) => (
-          <DroneCard key={i} drone={drone} reverse={i % 2 !== 0} />
-        ))}
-      </div> */}
-      <div
-  ref={dronesRef}
-  className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
->
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-    {droneProjects.map((drone, i) => (
-      <DroneCard
-        key={i}
-        drone={drone}
-        onClick={() => setSelectedDrone(drone)}
-      />
-    ))}
-  </div>
-</div>
 
-<DroneModal
-  drone={selectedDrone}
-  onClose={() => setSelectedDrone(null)}
-/>
+      <div ref={dronesRef} className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <h2 className="text-center text-4xl md:text-5xl font-light tracking-tight text-white mb-14">
+        Our <span className="font-semibold">Fleet</span>
+      </h2>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {droneProjects.map((drone, i) => (
+          <DroneCard
+            key={i}
+            drone={drone}
+            onClick={() => setSelectedDrone(drone)}
+          />
+        ))}
+      </div>
+    </div>
+
+    <DroneModal
+      drone={selectedDrone}
+      onClose={() => setSelectedDrone(null)}
+    />
 
       {/* ---------------- END PROJECTS ---------------- */}
     </div>
