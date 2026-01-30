@@ -141,6 +141,15 @@ export const teamMembers: TeamMember[] = [
       github: "https://github.com/bluecode-hub",
     },
     {
+      name: "Aviral Nigam",
+      designation: "AI & Automation Team Member",
+      department: "AI & Automation",
+      image: `${base}members/aviral.jpeg`,
+      linkedin: "www.linkedin.com/in/aviral-nigam-a0b469271",
+      email: "nigamaviral21@gmail.com",
+      github: "https://github.com/Aviral0gHub",
+    },
+    {
       name: "Shaurya Raizada",
       designation: "AI & Automation Team Member",
       department: "AI & Automation",

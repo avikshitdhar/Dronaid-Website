@@ -82,7 +82,7 @@ const Home = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900/20 to-gray-900 overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center bg-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center w-full">
         {/* Animated Flying Letters */}
         <div className="mb-12 flex justify-center items-center h-48 md:h-64">
@@ -149,7 +149,7 @@ const Home = () => {
         </motion.div>
 
         {/* Scroll Indicator */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           animate={showContent ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 4.2, duration: 0.8 }}
@@ -160,7 +160,7 @@ const Home = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           </a>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

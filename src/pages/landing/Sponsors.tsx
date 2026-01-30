@@ -54,7 +54,7 @@ const Sponsors = () => {
               Join us in advancing drone technology and supporting the next generation of engineers.
             </p>
             <a
-              href="/#/contact"
+              href="/contact"
               className="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors"
             >
               Get in Touch

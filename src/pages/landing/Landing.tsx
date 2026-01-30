@@ -1,6 +1,6 @@
 import Home from './Home';
 import About from './About';
-import Ambitions from './Ambitions';
+import Subsystems from './Subsystems';
 import Sponsors from './Sponsors';
 
 /**
@@ -12,7 +12,7 @@ const Landing = () => {
     <div className="pt-16">
       <Home />
       <About />
-      <Ambitions />
+      <Subsystems />
       <Sponsors />
     </div>
   );
