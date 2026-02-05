@@ -11,31 +11,31 @@ const Subsystems = () => {
       name: "Electronics",
       description:
         "Focuses on airframe design, material selection, and CFD analysis to optimize lift-to-drag ratios.",
-      image: `${base}drones/Icarus.jpeg`,
+      image: `${base}subsystems/electronics.webp`,
     },
     {
       name: "Design Fabrication and Manufacturing",
       description:
-        "Responsible for motor efficiency, battery management, and electronic speed controller (ESC) calibration.",
-      image: `${base}drones/Icarus.jpeg`,
+        "This subsystem works on designing CAD models, 3D printing designs, and building an efficient payload mechanism. From fabricating individual components to manufacturing a fully-assembled product, DFM is responsible for bringing complex ideas to life.",
+      image: `${base}subsystems/dfm.webp`,
     },
     {
       name: "AI and Automation",
       description:
-        "Developing SLAM algorithms, computer vision, and obstacle avoidance for GPS-denied environments.",
-      image: `${base}drones/Icarus.jpeg`,
+        "This subsystem works on state of the art computer vision models for drones. It deploys them to achieve object detection tasks and works extensively with deep learning.",
+      image: `${base}subsystems/ai.webp`,
     },
     {
       name: "Software",
       description:
-        "Implementing PID tuning and flight controller firmware optimization for maximum stability.",
-      image: `${base}drones/Icarus.jpeg`,
+        "This team works to bring a game-changing experience in healthcare and automation. Our web and app platforms play a pivotal role in making our vision of meds delivery through automation a reality. The team provides a user friendly interface that makes ordering essential medicines a breeze.",
+      image: `${base}subsystems/software.webp`,
     },
     {
       name: "Management",
       description:
-        "Implementing PID tuning and flight controller firmware optimization for maximum stability.",
-      image: `${base}drones/Icarus.jpeg`,
+        "Management is the subsystem assigned for handling the finances while also working on the content for social media and graphic designing. The team also handles HR, PR and sponsorship for the Project.",
+      image: `${base}subsystems/management.webp`,
     },
   ];
 
@@ -63,8 +63,7 @@ const Subsystems = () => {
           <button
             onClick={prevSlide}
             className="absolute -left-16 top-1/2 -translate-y-1/2 z-20
-                       p-3 rounded-full border border-gray-700
-                       hover:bg-gray-800 transition"
+                       p-3"
             aria-label="Previous subsystem"
           >
             <ChevronLeft size={30} />
@@ -74,14 +73,14 @@ const Subsystems = () => {
           <div
             key={currentIndex}
             className="w-full grid md:grid-cols-2 gap-12
-                       border border-gray-800 bg-gray-900/60 backdrop-blur-sm
+                       border border-gray-900 bg-black backdrop-blur-sm
                        p-12 min-h-[420px]
                        transition-all duration-500 ease-out
                        animate-[fadeSlide_0.5s_ease-out]"
           >
             {/* Text */}
             <div className="flex flex-col justify-center">
-              <h3 className="text-2xl font-semibold mb-6 text-blue-400 uppercase tracking-widest">
+              <h3 className="text-2xl font-semibold mb-6 text-blue-600 uppercase tracking-widest">
                 {current.name}
               </h3>
 
@@ -111,8 +110,7 @@ const Subsystems = () => {
           <button
             onClick={nextSlide}
             className="absolute -right-16 top-1/2 -translate-y-1/2 z-20
-                       p-3 rounded-full border border-gray-700
-                       hover:bg-gray-800 transition"
+                       p-3"
             aria-label="Next subsystem"
           >
             <ChevronRight size={30} />

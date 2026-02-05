@@ -7,6 +7,7 @@ import Team from "./pages/team/Team";
 import Contact from "./pages/Contact";
 import Competitions from "./pages/competitions/competitions";
 import CompetitionDetail from "./pages/competitions/competitionDetail";
+import ScrollToHash from "./pages/landing/scrollToHash";
 
 /**
  * Main App Component
@@ -16,7 +17,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-950 text-white">
       <Navbar />
-
+      <ScrollToHash />
       <main>
         <Routes>
           <Route path="/" element={<Landing />} />

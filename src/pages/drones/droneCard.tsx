@@ -15,7 +15,7 @@ const DroneCard = ({ drone, onClick }: DroneCardProps) => {
       className="cursor-pointer group"
     >
       {/* OUTER CARD */}
-      <div className="bg-black border border-white rounded-2xl overflow-hidden transition-all duration-300 group-hover:border-blue-600 group-hover:shadow-[0_0_25px_rgba(59,130,246,0.3)]">
+      <div className="bg-black border border-blue-600 rounded-2xl overflow-hidden transition-all duration-300 group-hover:border-blue-600 group-hover:shadow-[0_0_25px_rgba(59,130,246,0.3)]">
         {/* IMAGE */}
         <div className="overflow-hidden">
           <img

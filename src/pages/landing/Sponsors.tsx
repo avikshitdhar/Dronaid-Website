@@ -1,61 +1,105 @@
-import { Building2 } from 'lucide-react';
+import { useEffect, useRef } from "react";
+
+const base = import.meta.env.BASE_URL;
 
 /**
  * Sponsors Section
- * Displays team sponsors and partners
+ * Fullscreen, monochrome, infinite horizontal logo scroll
  */
-const Sponsors = () => {
-  // Placeholder sponsor data
+const Sponsors = () => {  
+  const trackRef = useRef<HTMLDivElement>(null);
+  const posRef = useRef(0);
   const sponsors = [
-    { name: 'TechCorp', level: 'Platinum' },
-    { name: 'AeroSystems', level: 'Gold' },
-    { name: 'DroneHub', level: 'Gold' },
-    { name: 'Innovation Labs', level: 'Silver' },
-    { name: 'FutureTech', level: 'Silver' },
-    { name: 'SkyView', level: 'Bronze' },
+    `${base}sponsors/altair.webp`,
+    `${base}sponsors/altium.webp`,
+    `${base}sponsors/ansys.webp`,
+    `${base}sponsors/apc.webp`,
+    `${base}sponsors/carbon.webp`,
+    `${base}sponsors/harness.webp`,
+    `${base}sponsors/onlyscrews.webp`,
+    `${base}sponsors/simscale.webp`,
+    `${base}sponsors/solidworks.webp`,
+    `${base}sponsors/t-motor.webp`,
   ];
 
+  // Duplicate list for seamless loop
+  const loopedSponsors = [...sponsors, ...sponsors];
+
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+
+    let raf: number;
+    const speed = 0.7;
+
+    const tick = () => {
+      posRef.current -= speed;
+
+      if (Math.abs(posRef.current) >= el.scrollWidth / 2) {
+        posRef.current = 0;
+      }
+
+      el.style.transform = `translateX(${posRef.current}px)`;
+      raf = requestAnimationFrame(tick);
+    };
+
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
   return (
-    <section id="sponsors" className="py-20 bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+    <section
+      id="sponsors"
+      className="min-h-screen bg-black text-white flex flex-col justify-center"
+    >
+      <div className="max-w-7xl mx-auto px-6 w-full">
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-4">
             Our Sponsors
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            We are grateful for the support of our partners who make our innovations possible.
+          <p className="text-gray-400 max-w-3xl mx-auto">
+            We collaborate with industry leaders who support innovation,
+            engineering excellence, and real-world impact.
           </p>
         </div>
 
-        {/* Sponsors Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-          {sponsors.map((sponsor, index) => (
+        {/* Horizontal Logo Scroller */}
+      <div className="w-full overflow-hidden px-6">
+        <div
+          ref={trackRef}
+          className="flex gap-16 will-change-transform"
+        >
+          {loopedSponsors.map((logo, i) => (
             <div
-              key={index}
-              className="bg-gray-800 rounded-lg p-6 flex flex-col items-center justify-center hover:bg-gray-750 transition-colors border border-gray-700 hover:border-blue-600"
+              key={i}
+              className="flex-shrink-0 flex items-center justify-center h-32 w-48"
             >
-              <Building2 size={48} className="text-blue-500 mb-3" />
-              <h4 className="text-white font-semibold text-center mb-1">
-                {sponsor.name}
-              </h4>
-              <span className="text-xs text-gray-400">{sponsor.level}</span>
+              <img
+                src={logo}
+                alt="Sponsor logo"
+                className="max-h-20 max-w-full object-contain invert opacity-80"
+              />
             </div>
           ))}
         </div>
+      </div>
 
-        {/* Become a Sponsor CTA */}
-        <div className="mt-16 text-center">
-          <div className="inline-block bg-gray-800 rounded-xl p-8 border border-gray-700">
-            <h3 className="text-2xl font-semibold text-white mb-3">
+        {/* CTA */}
+        <div className="mt-20 text-center">
+          <div className="inline-block border border-gray-700 rounded-xl p-8">
+            <h3 className="text-2xl font-light mb-3">
               Become a Sponsor
             </h3>
-            <p className="text-gray-300 mb-6 max-w-xl">
-              Join us in advancing drone technology and supporting the next generation of engineers.
+            <p className="text-gray-400 mb-6 max-w-xl">
+              Partner with us to support cutting-edge drone research
+              and student-driven innovation.
             </p>
             <a
               href="/contact"
-              className="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors"
+              className="inline-block px-8 py-3 border border-white
+                         text-white hover:bg-white hover:text-black
+                         transition-colors rounded-full"
             >
               Get in Touch
             </a>

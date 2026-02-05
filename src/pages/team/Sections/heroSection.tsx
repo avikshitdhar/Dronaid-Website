@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import team from "/team-photo.jpg";
+import team from "/team-photo.webp";
 
 const HeroSection = () => {
 

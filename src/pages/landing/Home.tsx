@@ -107,7 +107,7 @@ const Home = () => {
         </div>
 
         {/* Heading */}
-        <motion.h1
+        {/* <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 3.2, duration: 0.8 }}
@@ -123,7 +123,7 @@ const Home = () => {
           className="text-lg sm:text-xl text-gray-300 mb-12 max-w-3xl mx-auto"
         >
           Innovating the future of aerial technology through passion, precision, and teamwork
-        </motion.p>
+        </motion.p> */}
 
         {/* CTA Buttons */}
         <motion.div
@@ -133,34 +133,20 @@ const Home = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Link
+            to="/#about"
+            className="inline-flex items-center justify-center px-8 py-4 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-semibold transition-colors"
+          >
+            <Play className="mr-2" size={20} />
+            About Us
+          </Link>
+          <Link
             to="/competitions"
-            className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors group"
+            className="inline-flex items-center justify-center px-8 py-4 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-semibold transition-colors group"
           >
             Our Achievements
             <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
           </Link>
-          <Link
-            to="/drones"
-            className="inline-flex items-center justify-center px-8 py-4 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-semibold transition-colors"
-          >
-            <Play className="mr-2" size={20} />
-            Our Fleet
-          </Link>
         </motion.div>
-
-        {/* Scroll Indicator */}
-        {/* <motion.div
-          initial={{ opacity: 0 }}
-          animate={showContent ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ delay: 4.2, duration: 0.8 }}
-          className="mt-16 animate-bounce"
-        >
-          <a href="#about" className="text-gray-400 hover:text-white transition-colors">
-            <svg className="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </a>
-        </motion.div> */}
       </div>
     </section>
   );
