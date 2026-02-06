@@ -19,10 +19,10 @@ const CompetitionCard = ({ competition }: CompetitionCardProps) => {
 
   return (
 
-    <div className="relative flex-1 overflow-y-auto p-8 sm:p-10 space-y-12">
+    <div className="relative flex-1 overflow-visible lg:overflow-y-auto p-4 sm:p-6 lg:p-10 space-y-6 lg:space-y-12">
       
       {/* CARD */}
-      <div className="w-full max-w-6xl h-full bg-[#05070a] rounded-2xl overflow-hidden shadow-2xl grid grid-cols-[1.2fr_0.8fr]">
+      <div className="w-full max-w-6xl bg-[#05070a] rounded-2xl overflow-hidden shadow-2xl grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr]">
         
         {/* LEFT — CONTENT */}
         <div className="flex flex-col h-full">
@@ -43,7 +43,7 @@ const CompetitionCard = ({ competition }: CompetitionCardProps) => {
           </div>
 
           {/* CONTENT (internal scroll only if needed) */}
-          <div className="flex-1 overflow-y-auto p-8 sm:p-10 space-y-12 scrollbar-thin scrollbar-thumb-white/10">
+          <div className="flex-1 overflow-visible lg:overflow-y-auto p-4 sm:p-6 lg:p-10 space-y-8 lg:space-y-12 scrollbar-thin scrollbar-thumb-white/10">
             
             {/* TITLE */}
             <header className="space-y-6">
@@ -54,18 +54,18 @@ const CompetitionCard = ({ competition }: CompetitionCardProps) => {
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl font-extralight text-white tracking-wide">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-light text-white tracking-wide">
                 {competition.name}
               </h1>
 
-              <div className="flex flex-wrap gap-10 pt-2">
+              <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 pt-2">
                 <div className="space-y-2">
-                  <p className="text-xs uppercase tracking-[0.3em] text-white/30">
+                  <p className="text-xs uppercase tracking-[0.3em] text-white/30 font-light">
                     Period
                   </p>
                   <div className="flex items-center gap-3 text-white/70">
                     <Calendar size={16} strokeWidth={1} className="text-cyan-500" />
-                    <span className="text-sm font-light tracking-wider">
+                    <span className="text-sm font-extralight tracking-wide">
                       {competition.date}
                     </span>
                   </div>
@@ -87,7 +87,7 @@ const CompetitionCard = ({ competition }: CompetitionCardProps) => {
 
             {/* DESCRIPTION */}
             <section>
-              <p className="text-white/50 text-base font-light leading-relaxed tracking-wide">
+              <p className="text-white/50 text-base font-extralight leading-relaxed tracking-wide">
                 {competition.description}
               </p>
             </section>
@@ -105,7 +105,7 @@ const CompetitionCard = ({ competition }: CompetitionCardProps) => {
                     key={i}
                     className="bg-white/[0.02] rounded-lg px-5 py-4 flex items-start gap-4"
                   >
-                    <span className="text-xs font-light text-white/20 italic pt-0.5">
+                    <span className="text-xs font-extralight text-white/20 italic pt-0.5 tracking-widest">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <p className="text-white/80 font-extralight text-sm tracking-wide">
@@ -119,7 +119,8 @@ const CompetitionCard = ({ competition }: CompetitionCardProps) => {
         </div>
 
         {/* RIGHT — SMALLER MEDIA */}
-        <div className="h-full border-l border-white/5 p-8 flex flex-col gap-6">
+        <div className="border-t lg:border-t-0 lg:border-l border-white/5 p-4 sm:p-6 lg:p-8 flex flex-col gap-4 lg:gap-6">
+
           
           <div className="flex items-center justify-between">
             <p className="text-xs uppercase tracking-[0.4em] text-white/60 font-light">
@@ -134,12 +135,11 @@ const CompetitionCard = ({ competition }: CompetitionCardProps) => {
               images.slice(0, 2).map((img, i) => (
                 <div
                   key={i}
-                  className="relative aspect-video rounded-sm overflow-hidden border border-white/10 shadow-2xl"
-                >
+                  className="relative aspect-video rounded-md overflow-hidden border border-white/10 shadow-2xl">
                   <img
                     src={img}
                     alt={`Reference ${i + 1}`}
-                    className="w-full h-full object-cover opacity-65"
+                    className="w-full h-full object-cover opacity-75 lg:opacity-65"
                   />
                   <div className="absolute inset-0 bg-cyan-500/5 pointer-events-none" />
                 </div>

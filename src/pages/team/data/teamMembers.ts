@@ -96,6 +96,14 @@ export const teamMembers: TeamMember[] = [
       image: `${base}members/saksham.webp`,
       linkedin: "https://www.linkedin.com/in/saksham-srivastava-a8537a308?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     },
+    {
+      name: "Sreyas S Kumar",
+      designation: "Electronics Team Member",
+      department: "Electronics",
+      image: `${base}members/shreyas.webp`,
+      email:"sreyasnair7777777@gmail.com",
+      linkedin: "https://www.linkedin.com/in/sreyas-s-kumar-0689ba395?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    },
 
     //AI & Automation
     {
@@ -155,6 +163,15 @@ export const teamMembers: TeamMember[] = [
       department: "AI & Automation",
       image: `${base}members/shaurya.webp`,
       github: "https://github.com/ShauryaRaizada007",
+    },
+    {
+      name: "Sahil Sinha",
+      designation: "AI & Automation Team Member",
+      department: "AI & Automation",
+      image: `${base}members/sahil.webp`,
+      linkedin: "https://www.linkedin.com/in/sahil-sinha-0a6560321/",
+      email: "sahil070406@gmail.com",
+      github: "https://github.com/TwoDayOldCoffee",
     },
 
     //DFM
@@ -219,9 +236,11 @@ export const teamMembers: TeamMember[] = [
       github: "https://github.com/medj-builds",
     },
     {
-      name: "Devika",
+      name: "Devika Rajeev",
       designation: "Management Team Member",
       department: "Management",
       image: `${base}members/devika.webp`,
+      email: "rajeevdevika567@gmail.com",
+      linkedin: "www.linkedin.com/in/devika-rajeev-3734863ab",
     },
 ];

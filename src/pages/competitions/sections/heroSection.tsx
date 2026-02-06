@@ -43,22 +43,23 @@ const CompetitionHero = () => {
       </div>
 
       {/* Hero Image */}
-      <div
-        className="absolute top-1/2 right-12 hidden lg:block z-20"
-        style={{
-          transform: animate
-            ? "translateX(0) scale(1)"
-            : "translateX(120vw) scale(1)", // start off-screen right
-          opacity: animate ? 1 : 0,
-          transition: `transform 1s ease-out ${heroImage.delay}s, opacity 1s ease-out ${heroImage.delay}s`,
-        }}
-      >
-        <img
-          src={heroImage.image}
-          alt="Hero Visual"
-          className="w-[420px] xl:w-[480px] object-contain -translate-y-1/2"
-        />
-      </div>
+<div
+  className="absolute top-1/2 right-12 hidden lg:block z-20 pointer-events-none"
+  style={{
+    transform: animate
+      ? "translateX(0) scale(1)"
+      : "translateX(120vw) scale(1)",
+    opacity: animate ? 1 : 0,
+    transition: `transform 1s ease-out ${heroImage.delay}s, opacity 1s ease-out ${heroImage.delay}s`,
+  }}
+>
+  <img
+    src={heroImage.image}
+    alt="Hero Visual"
+    className="w-[420px] xl:w-[480px] object-contain -translate-y-1/2"
+  />
+</div>
+
     </section>
   );
 };

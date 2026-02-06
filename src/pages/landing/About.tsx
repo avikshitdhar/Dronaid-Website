@@ -1,5 +1,3 @@
-import { Users, Award, Zap } from 'lucide-react';
-
 /**
  * About Section
  * Overview of the drone team's mission and values
@@ -7,35 +5,32 @@ import { Users, Award, Zap } from 'lucide-react';
 const About = () => {
   const features = [
     {
-      icon: Users,
-      title: 'Collaborative Team',
+      title: 'Who Are We?',
       description: 'A diverse group of engineers, designers, and enthusiasts working together to push boundaries.',
     },
     {
-      icon: Award,
-      title: 'Award-Winning',
+      title: 'Vision',
       description: 'Recognized in national and international competitions for innovation and performance.',
     },
     {
-      icon: Zap,
-      title: 'Cutting-Edge Tech',
+      title: 'Mission',
       description: 'Leveraging the latest in drone technology, AI, and autonomous systems.',
     },
   ];
 
   return (
-    <section id="about" className="py-20 bg-gray-900">
+    <section id="about" className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             About Us
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          {/* <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             We are a passionate team dedicated to advancing drone technology through innovation,
             research, and competition. Our mission is to develop cutting-edge aerial systems
             that solve real-world problems.
-          </p>
+          </p> */}
         </div>
 
         {/* Features Grid */}
@@ -45,9 +40,9 @@ const About = () => {
               key={index}
               className="bg-gray-800 rounded-xl p-8 hover:bg-gray-750 transition-colors border border-gray-700"
             >
-              <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center mb-6">
+              {/* <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center mb-6">
                 <feature.icon size={32} className="text-white" />
-              </div>
+              </div> */}
               <h3 className="text-2xl font-semibold text-white mb-4">
                 {feature.title}
               </h3>

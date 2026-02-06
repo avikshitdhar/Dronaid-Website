@@ -5,20 +5,16 @@ import { motion } from 'framer-motion';
 
 const base = import.meta.env.BASE_URL;
 
-/**
- * Home Section
- * Hero section with animated flying letters spelling "DRONAID"
- */
 const Home = () => {
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    // Show CTA buttons after animation completes
     const timer = setTimeout(() => setShowContent(true), 4000);
     return () => clearTimeout(timer);
   }, []);
 
-  // Letter animation configuration
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+
   const letters = [
     { char: 'D', image: `${base}images/d-nobg.png`, delay: 0, scale: 0.85, side: 'left' },
     { char: 'R', image: `${base}images/r-nobg.png`, delay: 0.5, scale: 0.8, side: 'left' },
@@ -29,33 +25,30 @@ const Home = () => {
     { char: 'D', image: `${base}images/d2.png`, delay: 3.3, scale: 0.85, side: 'right' },
   ];
 
-  // Animation variants for letters coming from different directions
   const letterVariants = (index: number) => {
-    const letter = letters[index];
-    const spacing = 150;
-    const totalWidth = 6 * spacing;
-    const finalX = (index * spacing) - (totalWidth / 2);
+    const spacing = isMobile ? 70 : 150;
+    const totalWidth = (letters.length - 1) * spacing;
+    const finalX = index * spacing - totalWidth / 2;
 
-    // Different starting positions based on side
-    let startX, startY, startScale, startRotate;
-    let finalY = 0; // Default y position for all letters
-    
-    if (letter.side === 'left') {
-      startX = -1000;
-      startY = 0;
-      startScale = 0.8;
-      startRotate = -45;
-    } else if (letter.side === 'top') {
-      startX = 0;
-      startY = -800;
-      startScale = 0.5;
+    let startX = 0;
+    let startY = 0;
+    let startScale = isMobile ? 0.7 : 0.8;
+    let startRotate = 0;
+    let finalY = 0;
+
+    const flyDistance = isMobile ? 400 : 1000;
+
+    if (letters[index].side === 'left') {
+      startX = -flyDistance;
+      startRotate = -30;
+    } else if (letters[index].side === 'top') {
+      startY = isMobile ? -300 : -800;
       startRotate = 180;
-      finalY = -40; // Move O slightly above the baseline
-    } else if (letter.side === 'right') {
-      startX = 1000;
-      startY = 0;
-      startScale = 0.8;
-      startRotate = 45;
+      finalY = isMobile ? -20 : -40;
+      startScale = 0.5;
+    } else {
+      startX = flyDistance;
+      startRotate = 30;
     }
 
     return {
@@ -73,8 +66,8 @@ const Home = () => {
         rotate: 0,
         scale: 1,
         transition: {
-          duration: 2,
-          delay: letter.delay,
+          duration: isMobile ? 1.5 : 2,
+          delay: letters[index].delay,
           ease: 'easeInOut',
         },
       },
@@ -82,11 +75,14 @@ const Home = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-black overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center w-full">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center bg-black overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center w-full">
         {/* Animated Flying Letters */}
-        <div className="mb-12 flex justify-center items-center h-48 md:h-64">
-          <div className="relative w-full max-w-4xl flex justify-center items-center" style={{ height: '200px' }}>
+        <div className="mb-8 sm:mb-12 flex justify-center items-center h-32 sm:h-40 md:h-56">
+          <div className="relative w-full max-w-4xl flex justify-center items-center">
             {letters.map((letter, index) => (
               <motion.div
                 key={index}
@@ -98,8 +94,10 @@ const Home = () => {
                 <img
                   src={letter.image}
                   alt={letter.char}
-                  className="h-32 md:h-40 lg:h-48 object-contain filter drop-shadow-lg"
-                  style={{ transform: `scale(${letter.scale})` }}
+                  className="h-20 sm:h-28 md:h-40 lg:h-48 object-contain drop-shadow-lg"
+                  style={{
+                    transform: `scale(${isMobile ? letter.scale * 0.85 : letter.scale})`,
+                  }}
                 />
               </motion.div>
             ))}
@@ -134,17 +132,21 @@ const Home = () => {
         >
           <Link
             to="/#about"
-            className="inline-flex items-center justify-center px-8 py-4 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-semibold transition-colors"
+            className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-semibold transition-colors"
           >
-            <Play className="mr-2" size={20} />
+            <Play className="mr-2" size={18} />
             About Us
           </Link>
+
           <Link
             to="/competitions"
-            className="inline-flex items-center justify-center px-8 py-4 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-semibold transition-colors group"
+            className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-semibold transition-colors group"
           >
             Our Achievements
-            <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+            <ArrowRight
+              className="ml-2 group-hover:translate-x-1 transition-transform"
+              size={18}
+            />
           </Link>
         </motion.div>
       </div>
