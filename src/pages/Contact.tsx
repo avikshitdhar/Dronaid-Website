@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone, Instagram, Linkedin, Facebook } from 'lucide-react';
+import { Mail, MapPin, Phone} from 'lucide-react';
 import { useState, FormEvent, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 
@@ -52,27 +52,6 @@ const Contact = () => {
     });
   };
 
-  const socialLinks = [
-    {
-      name: 'Instagram',
-      icon: Instagram,
-      url: 'https://www.instagram.com/project.dronaid/',
-      color: 'hover:text-pink-500',
-    },
-    {
-      name: 'LinkedIn',
-      icon: Linkedin,
-      url: 'https://www.linkedin.com/company/dronaid/',
-      color: 'hover:text-blue-500',
-    },
-    {
-      name: 'Facebook',
-      icon: Facebook,
-      url: 'https://www.facebook.com/dronaid.care/',
-      color: 'hover:text-gray-400',
-    },
-  ];
-
   const contactInfo = [
     {
       icon: Mail,
@@ -110,7 +89,7 @@ const Contact = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* 🔑 Changed grid */}
-        <div className="grid lg:grid-cols-5 gap-12">
+        <div className="grid lg:grid-cols-5 gap-20 max-w-6xl mx-auto">
           
           {/* Send Us a Message (LEFT, SMALLER, NO BG) */}
           <div className="lg:col-span-2">

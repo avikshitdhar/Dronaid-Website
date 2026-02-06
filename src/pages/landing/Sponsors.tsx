@@ -2,13 +2,10 @@ import { useEffect, useRef } from "react";
 
 const base = import.meta.env.BASE_URL;
 
-/**
- * Sponsors Section
- * Fullscreen, monochrome, infinite horizontal logo scroll
- */
-const Sponsors = () => {  
+const Sponsors = () => {
   const trackRef = useRef<HTMLDivElement>(null);
   const posRef = useRef(0);
+
   const sponsors = [
     `${base}sponsors/altair.webp`,
     `${base}sponsors/altium.webp`,
@@ -22,7 +19,6 @@ const Sponsors = () => {
     `${base}sponsors/t-motor.webp`,
   ];
 
-  // Duplicate list for seamless loop
   const loopedSponsors = [...sponsors, ...sponsors];
 
   useEffect(() => {
@@ -30,7 +26,9 @@ const Sponsors = () => {
     if (!el) return;
 
     let raf: number;
-    const speed = 0.7;
+
+    const speed =
+      window.innerWidth < 768 ? 0.4 : 0.7; // slower on mobile
 
     const tick = () => {
       posRef.current -= speed;
@@ -50,55 +48,63 @@ const Sponsors = () => {
   return (
     <section
       id="sponsors"
-      className="min-h-screen bg-black text-white flex flex-col justify-center"
+      className="bg-black text-white py-20 md:min-h-screen
+                 flex flex-col justify-center"
     >
-      <div className="max-w-7xl mx-auto px-6 w-full">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 w-full">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-4">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-4">
             Our Sponsors
           </h2>
-          <p className="text-gray-400 max-w-3xl mx-auto">
+          <p className="text-gray-400 max-w-3xl mx-auto text-sm md:text-base">
             We collaborate with industry leaders who support innovation,
             engineering excellence, and real-world impact.
           </p>
         </div>
 
         {/* Horizontal Logo Scroller */}
-      <div className="w-full overflow-hidden px-6">
-        <div
-          ref={trackRef}
-          className="flex gap-16 will-change-transform"
-        >
-          {loopedSponsors.map((logo, i) => (
-            <div
-              key={i}
-              className="flex-shrink-0 flex items-center justify-center h-32 w-48"
-            >
-              <img
-                src={logo}
-                alt="Sponsor logo"
-                className="max-h-20 max-w-full object-contain invert opacity-80"
-              />
-            </div>
-          ))}
+        <div className="w-full overflow-hidden">
+          <div
+            ref={trackRef}
+            className="flex gap-10 md:gap-16 will-change-transform"
+          >
+            {loopedSponsors.map((logo, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 flex items-center justify-center
+                           h-24 md:h-32 w-36 md:w-48"
+              >
+                <img
+                  src={logo}
+                  alt="Sponsor logo"
+                  className="max-h-16 md:max-h-20
+                             max-w-full object-contain
+                             invert opacity-80"
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
 
         {/* CTA */}
-        <div className="mt-20 text-center">
-          <div className="inline-block border border-gray-700 rounded-xl p-8">
-            <h3 className="text-2xl font-light mb-3">
+        <div className="mt-16 md:mt-20 text-center">
+          <div
+            className="inline-block border border-gray-700 rounded-xl
+                       p-6 md:p-8 max-w-xl"
+          >
+            <h3 className="text-xl md:text-2xl font-light mb-3">
               Become a Sponsor
             </h3>
-            <p className="text-gray-400 mb-6 max-w-xl">
+            <p className="text-gray-400 mb-6 text-sm md:text-base">
               Partner with us to support cutting-edge drone research
               and student-driven innovation.
             </p>
             <a
               href="/contact"
-              className="inline-block px-8 py-3 border border-white
-                         text-white hover:bg-white hover:text-black
+              className="inline-block px-6 md:px-8 py-3
+                         border border-white text-white
+                         hover:bg-white hover:text-black
                          transition-colors rounded-full"
             >
               Get in Touch
