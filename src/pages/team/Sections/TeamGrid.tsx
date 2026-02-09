@@ -32,44 +32,65 @@ const cardVariants = {
 const TeamGrid = ({ groupedMembers }: Props) => {
   // 🔹 Flatten all members into one array
   const allMembers = Object.values(groupedMembers).flat();
+  const visibleMembers = allMembers.slice(0, 8);
+
 
   // 🔹 Preload state
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
   // 🔹 Preload all profile images
-  useEffect(() => {
-    const imageUrls = allMembers
-      .map(member => member.image)
-      .filter(Boolean) as string[];
+  // useEffect(() => {
+  //   const imageUrls = allMembers
+  //     .map(member => member.image)
+  //     .filter(Boolean) as string[];
 
-    if (imageUrls.length === 0) {
-      setImagesLoaded(true);
-      return;
-    }
+  //   if (imageUrls.length === 0) {
+  //     setImagesLoaded(true);
+  //     return;
+  //   }
 
-    let loadedCount = 0;
+  //   let loadedCount = 0;
 
-    imageUrls.forEach(src => {
-      const img = new Image();
-      img.src = src;
+  //   imageUrls.forEach(src => {
+  //     const img = new Image();
+  //     img.src = src;
 
-      img.onload = img.onerror = () => {
-        loadedCount++;
-        if (loadedCount === imageUrls.length) {
-          setImagesLoaded(true);
-        }
-      };
-    });
+  //     img.onload = img.onerror = () => {
+  //       loadedCount++;
+  //       if (loadedCount === imageUrls.length) {
+  //         setImagesLoaded(true);
+  //       }
+  //     };
+  //   });
+  // }, [allMembers]);
+
+    useEffect(() => {
+    const preload = (members: TeamMember[]) => {
+      members
+        .map(m => m.image)
+        .filter(Boolean)
+        .forEach(src => {
+          const img = new Image();
+          img.src = src!;
+        });
+    };
+
+    preload(visibleMembers);
+
+    const id = requestIdleCallback(() => preload(allMembers));
+
+    return () => cancelIdleCallback(id);
   }, [allMembers]);
 
+
   // 🔹 Render fallback while images preload
-  if (!imagesLoaded) {
-    return (
-      <div className="flex justify-center items-center py-32 text-gray-400">
-        Loading team…
-      </div>
-    );
-  }
+  // if (!imagesLoaded) {
+  //   return (
+  //     <div className="flex justify-center items-center py-32 text-gray-400">
+  //       Loading team…
+  //     </div>
+  //   );
+  // }
 
   return (
     <div
@@ -117,7 +138,9 @@ const TeamGrid = ({ groupedMembers }: Props) => {
               {member.image ? (
                 <img
                   src={member.image}
-                  alt={member.name}
+                  // alt={member.name}
+                  loading = "eager"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               ) : (
