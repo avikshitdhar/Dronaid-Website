@@ -7,13 +7,14 @@ const base = import.meta.env.BASE_URL;
 
 const Home = () => {
   const [showContent, setShowContent] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShowContent(true), 4000);
-    return () => clearTimeout(timer);
-  }, []);
-
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+
+useEffect(() => {
+  const delay = isMobile ? 1200 : 4000;
+
+  const timer = setTimeout(() => setShowContent(true), delay);
+  return () => clearTimeout(timer);
+}, [isMobile]);
 
   const letters = [
     { char: 'D', image: `${base}images/d-nobg.png`, delay: 0, scale: 0.85, side: 'left' },
