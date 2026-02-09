@@ -2,7 +2,18 @@
  * About Section
  * Overview of the drone team's mission and values
  */
+
+import { useEffect, useRef } from "react";
+import { useScroll } from "./scrollContext";
+
 const About = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { register } = useScroll();
+
+  useEffect(() => {
+    register("about", sectionRef.current);
+  }, [register]);
+
   const features = [
     {
       title: 'Who Are We?',
@@ -19,7 +30,11 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-black">
+    <section
+      ref={sectionRef}
+      id="about" // optional: safe to keep, does NOT break component scrolling
+      className="py-20 bg-black"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">

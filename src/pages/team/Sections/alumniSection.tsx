@@ -1,6 +1,6 @@
 import { AlumniByYear } from "../types";
 import { User, Linkedin, Mail, ChevronLeft, ChevronRight } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface AlumniSectionProps {
   alumniByYear: AlumniByYear;
@@ -12,6 +12,7 @@ const AlumniSection = ({ alumniByYear }: AlumniSectionProps) => {
   );
 
   const [activeYearIndex, setActiveYearIndex] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   const activeYear = years[activeYearIndex];
   const alumni = alumniByYear[activeYear];
@@ -23,6 +24,35 @@ const AlumniSection = ({ alumniByYear }: AlumniSectionProps) => {
   const nextYear = () => {
     setActiveYearIndex((i) => Math.min(i + 1, years.length - 1));
   };
+
+  /* ---------------- IMAGE PRELOADING ---------------- */
+  useEffect(() => {
+    setImagesLoaded(false);
+
+    const imageUrls = alumni
+      .map(alum => alum.image)
+      .filter(Boolean) as string[];
+
+    if (imageUrls.length === 0) {
+      setImagesLoaded(true);
+      return;
+    }
+
+    let loadedCount = 0;
+
+    imageUrls.forEach(src => {
+      const img = new Image();
+      img.src = src;
+
+      img.onload = img.onerror = () => {
+        loadedCount++;
+        if (loadedCount === imageUrls.length) {
+          setImagesLoaded(true);
+        }
+      };
+    });
+  }, [alumni]);
+  /* -------------------------------------------------- */
 
   return (
     <section className="bg-black py-16">
@@ -56,62 +86,70 @@ const AlumniSection = ({ alumniByYear }: AlumniSectionProps) => {
           </button>
         </div>
 
-        {/* ALUMNI GRID — ALL MEMBERS */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-          {alumni.map((alum, i) => (
-            <div
-              key={i}
-              className="bg-gray-950 rounded-lg p-4 flex flex-col items-center
-                         text-center border border-black"
-            >
-              <div className="w-20 h-20 mb-3 rounded-full overflow-hidden
-                              bg-gray-700 flex items-center justify-center">
-                {alum.image ? (
-                  <img
-                    src={alum.image}
-                    alt={alum.name}
-                    loading="lazy"
-                    decoding="async"
-                    width={80}
-                    height={80}
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <User size={32} className="text-white" />
-                )}
+        {/* PRELOAD FALLBACK */}
+        {!imagesLoaded ? (
+          <div className="flex justify-center items-center py-24 text-gray-400">
+            Loading alumni…
+          </div>
+        ) : (
+          /* ALUMNI GRID — ALL MEMBERS */
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+            {alumni.map((alum, i) => (
+              <div
+                key={i}
+                className="bg-gray-950 rounded-lg p-4 flex flex-col items-center
+                           text-center border border-black"
+              >
+                <div
+                  className="w-20 h-20 mb-3 rounded-full overflow-hidden
+                             bg-gray-700 flex items-center justify-center"
+                >
+                  {alum.image ? (
+                    <img
+                      src={alum.image}
+                      alt={alum.name}
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <User size={32} className="text-white" />
+                  )}
+                </div>
+
+                <h4 className="text-sm font-semibold text-white mb-1">
+                  {alum.name}
+                </h4>
+
+                <p className="text-[#2596be] text-xs font-medium mb-2">
+                  {alum.designation}
+                </p>
+
+                <div className="flex gap-2">
+                  {alum.linkedin && (
+                    <a
+                      href={alum.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-blue-500 transition-opacity"
+                    >
+                      <Linkedin size={16} />
+                    </a>
+                  )}
+
+                  {alum.email && (
+                    <a
+                      href={`mailto:${alum.email}`}
+                      className="text-gray-400 hover:text-blue-400 transition-opacity"
+                    >
+                      <Mail size={16} />
+                    </a>
+                  )}
+                </div>
               </div>
-
-              <h4 className="text-sm font-semibold text-white mb-1">
-                {alum.name}
-              </h4>
-
-              <p className="text-[#2596be] text-xs font-medium mb-2">
-                {alum.designation}
-              </p>
-
-              <div className="flex gap-2">
-                {alum.linkedin && (
-                  <a
-                    href={alum.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-blue-500 transition-opacity"
-                  >
-                    <Linkedin size={16} />
-                  </a>
-                )}
-                {alum.email && (
-                  <a
-                    href={`mailto:${alum.email}`}
-                    className="text-gray-400 hover:text-blue-400 transition-opacity"
-                  >
-                    <Mail size={16} />
-                  </a>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

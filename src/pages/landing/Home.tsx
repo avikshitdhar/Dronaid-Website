@@ -25,6 +25,26 @@ const Home = () => {
     { char: 'D', image: `${base}images/d2.png`, delay: 3.3, scale: 0.85, side: 'right' },
   ];
 
+const mobileOVariants = {
+  hidden: {
+    y: -400,
+    opacity: 0,
+    rotate: 180,
+    scale: 0.5,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    rotate: 0,
+    scale: 1,
+    transition: {
+      duration: 1.8,
+      ease: "easeInOut",
+    },
+  },
+};
+
+
   const letterVariants = (index: number) => {
     const spacing = isMobile ? 70 : 150;
     const totalWidth = (letters.length - 1) * spacing;
@@ -83,24 +103,40 @@ const Home = () => {
         {/* Animated Flying Letters */}
         <div className="mb-8 sm:mb-12 flex justify-center items-center h-32 sm:h-40 md:h-56">
           <div className="relative w-full max-w-4xl flex justify-center items-center">
-            {letters.map((letter, index) => (
-              <motion.div
-                key={index}
-                variants={letterVariants(index)}
-                initial="hidden"
-                animate="visible"
-                className="absolute"
-              >
-                <img
-                  src={letter.image}
-                  alt={letter.char}
-                  className="h-20 sm:h-28 md:h-40 lg:h-48 object-contain drop-shadow-lg"
-                  style={{
-                    transform: `scale(${isMobile ? letter.scale * 0.85 : letter.scale})`,
-                  }}
-                />
-              </motion.div>
-            ))}
+            {isMobile ? (
+  <motion.div
+    variants={mobileOVariants}
+    initial="hidden"
+    animate="visible"
+    className="absolute"
+  >
+    <img
+      src={`${base}images/o-nobg.png`}
+      alt="O"
+      className="h-32 object-contain drop-shadow-lg"
+    />
+  </motion.div>
+) : (
+  letters.map((letter, index) => (
+    <motion.div
+      key={index}
+      variants={letterVariants(index)}
+      initial="hidden"
+      animate="visible"
+      className="absolute"
+    >
+      <img
+        src={letter.image}
+        alt={letter.char}
+        className="h-20 sm:h-28 md:h-40 lg:h-48 object-contain drop-shadow-lg"
+        style={{
+          transform: `scale(${letter.scale})`,
+        }}
+      />
+    </motion.div>
+  ))
+)}
+
           </div>
         </div>
 
@@ -130,8 +166,10 @@ const Home = () => {
           transition={{ duration: 0.8 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
+          {/* <Link to="/" state={{ scrollTo: "about" }}>About Us</Link> */}
+
           <Link
-            to="/#about"
+            to="/" state={{ scrollTo: "about" }}
             className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-semibold transition-colors"
           >
             <Play className="mr-2" size={18} />
