@@ -1,22 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const base = import.meta.env.BASE_URL;
 
 const Subsystems = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   const subsystems = [
     {
       name: "Electronics",
       description:
-        "Focuses on airframe design, material selection, and CFD analysis to optimize lift-to-drag ratios.",
+        "Deals with the onboard components of the drone like flight systems, communications and working, handles control and propulsion. Basically makes a frame functioning.",
       image: `${base}subsystems/electronics.webp`,
     },
     {
       name: "Design Fabrication and Manufacturing",
       description:
-        "This subsystem works on designing CAD models, 3D printing designs, and building an efficient payload mechanism.",
+        "Involved in the end-to-end design and manufacture of multi-rotor, fixed-wing, and VTOL drones, with particular attention to aerodynamic performance and structural integrity of airframes and payloads.",
       image: `${base}subsystems/dfm.webp`,
     },
     {
@@ -28,16 +29,36 @@ const Subsystems = () => {
     {
       name: "Software",
       description:
-        "Our web and app platforms play a pivotal role in making automated medicine delivery a reality.",
+        "Works on developing the mobile application through which the users can place order and the drone delivers it to them autonomously, it works towards providing access to the tehnology which we create using easy to use mobile apps.",
       image: `${base}subsystems/software.webp`,
     },
     {
       name: "Management",
       description:
-        "Handles finance, HR, PR, sponsorship, social media and graphic design for the project.",
+        "Handles team coordination, inter-subsystem acitvities, publicity, sponsorship and finance.",
       image: `${base}subsystems/management.webp`,
     },
   ];
+
+  /* ---------------- IMAGE PRELOADING ---------------- */
+  useEffect(() => {
+    const imageUrls = subsystems.map(s => s.image);
+
+    let loadedCount = 0;
+
+    imageUrls.forEach(src => {
+      const img = new Image();
+      img.src = src;
+
+      img.onload = img.onerror = () => {
+        loadedCount++;
+        if (loadedCount === imageUrls.length) {
+          setImagesLoaded(true);
+        }
+      };
+    });
+  }, []);
+  /* -------------------------------------------------- */
 
   const nextSlide = () =>
     setCurrentIndex((prev) =>
@@ -50,6 +71,16 @@ const Subsystems = () => {
     );
 
   const current = subsystems[currentIndex];
+
+  /* ---------------- PRELOAD FALLBACK ---------------- */
+  if (!imagesLoaded) {
+    return (
+      <section className="py-24 bg-black text-gray-400 flex justify-center items-center">
+        Loading subsystems…
+      </section>
+    );
+  }
+  /* -------------------------------------------------- */
 
   return (
     <section id="subsystems" className="py-16 md:py-24 bg-black text-white">
@@ -91,8 +122,10 @@ const Subsystems = () => {
 
             {/* Text */}
             <div className="flex flex-col justify-center order-2 md:order-1">
-              <h3 className="text-xl md:text-2xl font-semibold mb-4 md:mb-6
-                             text-blue-600 uppercase tracking-widest">
+              <h3
+                className="text-xl md:text-2xl font-semibold mb-4 md:mb-6
+                           text-blue-600 uppercase tracking-widest"
+              >
                 {current.name}
               </h3>
 

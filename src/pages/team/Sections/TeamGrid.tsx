@@ -94,8 +94,11 @@ const TeamGrid = ({ groupedMembers }: Props) => {
           <motion.div
             key={index}
             variants={cardVariants}
-            whileHover={{ scale: 1.05, y: -6 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            whileHover={{ y: -10, scale: 1.03 }}
+            transition={{
+              duration: 0.08,
+              ease: "linear",
+            }}
             className="
               bg-gray-950 rounded-xl p-6 
               flex flex-col items-center justify-center text-center

@@ -17,7 +17,7 @@ const About = () => {
   const features = [
     {
       title: 'Who Are We?',
-      description: 'A diverse group of engineers, designers, and enthusiasts working together to push boundaries.',
+      description: "We are the official drone team of Manipal Institute of Technology, Manipal. As a student project team we are working towards building an autonomous UAV system for the purpose of delivering medical and emergency aid and supplies. Every minute a medical delivery is delayed due to traffic, and life is at risk. We aren't just building drones, we are building a bypass for the healthcare system.",
     },
     {
       title: 'Vision',
