@@ -44,57 +44,76 @@ const mobileOVariants = {
     },
   },
 };
+  // Manually control spacing for each letter (edit freely)
+  const xPositionsDesktop = [
+    -450, // D
+    -300, // R
+    -100, // O
+    100, // N
+    260, // A
+    400, // I
+    550, // D
+  ];
+
+  const xPositionsMobile = [
+    -180,
+    -120,
+    -40,
+      40,
+    100,
+    150,
+    200,
+  ];
 
 
   const letterVariants = (index: number) => {
-    const spacing = isMobile ? 70 : 150;
-    const totalWidth = (letters.length - 1) * spacing;
-    const finalX = index * spacing - totalWidth / 2;
+  let startX = 0;
+  let startY = 0;
+  let startScale = isMobile ? 0.7 : 0.8;
+  let startRotate = 0;
+  let finalY = 0;
 
-    let startX = 0;
-    let startY = 0;
-    let startScale = isMobile ? 0.7 : 0.8;
-    let startRotate = 0;
-    let finalY = 0;
+  const flyDistance = isMobile ? 400 : 1000;
 
-    const flyDistance = isMobile ? 400 : 1000;
+  if (letters[index].side === 'left') {
+    startX = -flyDistance;
+    startRotate = -30;
+  } else if (letters[index].side === 'top') {
+    startY = isMobile ? -300 : -800;
+    startRotate = 180;
+    finalY = isMobile ? -20 : -40;
+    startScale = 0.5;
+  } else {
+    startX = flyDistance;
+    startRotate = 30;
+  }
 
-    if (letters[index].side === 'left') {
-      startX = -flyDistance;
-      startRotate = -30;
-    } else if (letters[index].side === 'top') {
-      startY = isMobile ? -300 : -800;
-      startRotate = 180;
-      finalY = isMobile ? -20 : -40;
-      startScale = 0.5;
-    } else {
-      startX = flyDistance;
-      startRotate = 30;
-    }
+  const finalX = isMobile
+    ? xPositionsMobile[index]
+    : xPositionsDesktop[index];
 
-    return {
-      hidden: {
-        x: startX,
-        y: startY,
-        opacity: 0,
-        rotate: startRotate,
-        scale: startScale,
+  return {
+    hidden: {
+      x: startX,
+      y: startY,
+      opacity: 0,
+      rotate: startRotate,
+      scale: startScale,
+    },
+    visible: {
+      x: finalX,
+      y: finalY,
+      opacity: 1,
+      rotate: 0,
+      scale: 1,
+      transition: {
+        duration: isMobile ? 1.5 : 2,
+        delay: letters[index].delay,
+        ease: 'easeInOut',
       },
-      visible: {
-        x: finalX,
-        y: finalY,
-        opacity: 1,
-        rotate: 0,
-        scale: 1,
-        transition: {
-          duration: isMobile ? 1.5 : 2,
-          delay: letters[index].delay,
-          ease: 'easeInOut',
-        },
-      },
-    };
+    },
   };
-
+};
   return (
     <section
       id="home"
