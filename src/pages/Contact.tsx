@@ -2,9 +2,10 @@ import { Mail, MapPin, Phone} from 'lucide-react';
 import { useState, FormEvent, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 
+
 const Contact = () => {
   useEffect(() => {
-    emailjs.init('wME5PplhO5SGCSlt0');
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
   }, []);
 
   const [formData, setFormData] = useState({
@@ -22,7 +23,7 @@ const Contact = () => {
     setError('');
 
     const templateParams = {
-      to_email: 'dronaid.mit@gmail.com',
+      to_email: import.meta.env.VITE_CONTACT_RECEIVER_EMAIL,
       name: formData.name,
       email: formData.email,
       subject: formData.subject,
@@ -31,7 +32,12 @@ const Contact = () => {
     };
 
     emailjs
-      .send('service_6cau1ad', 'template_h7mn2sa', templateParams)
+      .send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      templateParams
+    );
+
       .then(() => {
         setSubmitted(true);
         setFormData({ name: '', email: '', subject: '', message: '' });
