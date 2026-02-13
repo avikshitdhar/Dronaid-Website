@@ -51,8 +51,8 @@ const mobileOVariants = {
     -100, // O
     100, // N
     260, // A
-    400, // I
-    550, // D
+    375, // I
+    500, // D
   ];
 
   const xPositionsMobile = [

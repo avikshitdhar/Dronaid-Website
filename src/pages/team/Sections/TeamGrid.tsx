@@ -1,7 +1,7 @@
 import { Linkedin, Mail, User, Github } from "lucide-react";
 import { motion } from "framer-motion";
 import { TeamMember } from "../types";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo } from "react";
 
 interface Props {
   groupedMembers: Record<string, TeamMember[]>;
@@ -19,7 +19,6 @@ const containerVariants = {
 
 const cardVariants = {
   hidden: {
-    // opacity: 0,
     y: 30,
   },
   visible: {
@@ -30,41 +29,20 @@ const cardVariants = {
 /* -------------------------------------------------------- */
 
 const TeamGrid = ({ groupedMembers }: Props) => {
-  // 🔹 Flatten all members into one array
-  const allMembers = Object.values(groupedMembers).flat();
-  const visibleMembers = allMembers.slice(0, 8);
+  /* ------------------ DATA ------------------ */
+  const allMembers = useMemo(
+    () => Object.values(groupedMembers).flat(),
+    [groupedMembers]
+  );
 
+  const visibleMembers = useMemo(
+    () => allMembers.slice(0, 8),
+    [allMembers]
+  );
+  /* ------------------------------------------ */
 
-  // 🔹 Preload state
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-
-  // 🔹 Preload all profile images
-  // useEffect(() => {
-  //   const imageUrls = allMembers
-  //     .map(member => member.image)
-  //     .filter(Boolean) as string[];
-
-  //   if (imageUrls.length === 0) {
-  //     setImagesLoaded(true);
-  //     return;
-  //   }
-
-  //   let loadedCount = 0;
-
-  //   imageUrls.forEach(src => {
-  //     const img = new Image();
-  //     img.src = src;
-
-  //     img.onload = img.onerror = () => {
-  //       loadedCount++;
-  //       if (loadedCount === imageUrls.length) {
-  //         setImagesLoaded(true);
-  //       }
-  //     };
-  //   });
-  // }, [allMembers]);
-
-    useEffect(() => {
+  /* ---------------- IMAGE PRELOAD ---------------- */
+  useEffect(() => {
     const preload = (members: TeamMember[]) => {
       members
         .map(m => m.image)
@@ -75,22 +53,24 @@ const TeamGrid = ({ groupedMembers }: Props) => {
         });
     };
 
+    // Preload visible cards immediately
     preload(visibleMembers);
 
-    const id = requestIdleCallback(() => preload(allMembers));
+    // Preload remaining cards when browser is idle
+    const idle =
+      "requestIdleCallback" in window
+        ? requestIdleCallback(() => preload(allMembers))
+        : setTimeout(() => preload(allMembers), 200);
 
-    return () => cancelIdleCallback(id);
-  }, [allMembers]);
-
-
-  // 🔹 Render fallback while images preload
-  // if (!imagesLoaded) {
-  //   return (
-  //     <div className="flex justify-center items-center py-32 text-gray-400">
-  //       Loading team…
-  //     </div>
-  //   );
-  // }
+    return () => {
+      if ("cancelIdleCallback" in window) {
+        cancelIdleCallback(idle as number);
+      } else {
+        clearTimeout(idle as number);
+      }
+    };
+  }, [visibleMembers, allMembers]);
+  /* ---------------------------------------------- */
 
   return (
     <div
@@ -116,10 +96,7 @@ const TeamGrid = ({ groupedMembers }: Props) => {
             key={index}
             variants={cardVariants}
             whileHover={{ y: -10, scale: 1.03 }}
-            transition={{
-              duration: 0.08,
-              ease: "linear",
-            }}
+            transition={{ duration: 0.08, ease: "linear" }}
             className="
               bg-gray-950 rounded-xl p-6 
               flex flex-col items-center justify-center text-center
@@ -131,15 +108,19 @@ const TeamGrid = ({ groupedMembers }: Props) => {
           >
             {/* Profile Image */}
             <motion.div
-              whileHover={{ scale: 1.05, rotate: 1 }}
-              transition={{ duration: 0.25 }}
-              className="w-32 h-32 mb-4 rounded-full overflow-hidden bg-gray-700 flex items-center justify-center shadow-md shadow-black/30"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0 }}
+              className="
+                w-32 h-32 mb-4 rounded-full overflow-hidden 
+                bg-gray-700 flex items-center justify-center 
+                shadow-md shadow-black/30
+              "
             >
               {member.image ? (
                 <img
                   src={member.image}
-                  // alt={member.name}
-                  loading = "eager"
+                  alt={member.name}
+                  loading="eager"
                   decoding="async"
                   className="w-full h-full object-cover"
                 />

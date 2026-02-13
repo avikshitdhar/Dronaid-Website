@@ -19,13 +19,13 @@ const About = () => {
       title: 'Who Are We?',
       description: "We are the official drone team of Manipal Institute of Technology, Manipal. As a student project team we are working towards building an autonomous UAV system for the purpose of delivering medical and emergency aid and supplies. Every minute a medical delivery is delayed due to traffic, and life is at risk. We aren't just building drones, we are building a bypass for the healthcare system.",
     },
-    {
-      title: 'Vision',
-      description: 'Recognized in national and international competitions for innovation and performance.',
-    },
+    // {
+    //   title: 'Vision',
+    //   description: 'Recognized in national and international competitions for innovation and performance.',
+    // },
     {
       title: 'Mission',
-      description: 'Leveraging the latest in drone technology, AI, and autonomous systems.',
+      description: 'We are diligently working on creating efficient autonomous payload delivery systems primarily focused on medicines and healthcare essentials. Concurrently, we are developing an accompanying app that will serve as the interface for our comprehensive medicinal delivery services.',
     },
   ];
 
