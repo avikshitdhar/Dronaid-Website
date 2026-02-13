@@ -28,11 +28,10 @@ const Drones = () => {
   /* ----------------------------------------------------------- */
 
   return (
-    <div className="relative overflow-hidden text-white
-      bg-gradient-to-br from-blue-800">
+    <div className="relative overflow-hidden text-white bg-animated">
 
-      {/* Optional soft overlay for contrast */}
-      <div className="absolute inset-0 bg-black/30"></div>
+      {/* Subtle dark overlay */}
+      <div className="absolute inset-0 bg-black/40"></div>
 
       {/* ---------------- HERO SECTION ---------------- */}
       <div className="relative z-10 h-screen flex flex-col justify-center items-center px-4">
@@ -43,22 +42,21 @@ const Drones = () => {
 
           <h1 className="text-5xl md:text-7xl font-light leading-tight tracking-tight max-w-4xl mx-auto">
             {typedText.replace(boldText, "")}
-            <span className="font-semibold text-white">
+            <span className="font-semibold">
               {typedText.includes(boldText) &&
                 boldText.slice(
                   0,
                   Math.max(
                     0,
-                    typedText.length -
-                      (fullText.length - boldText.length)
+                    typedText.length - (fullText.length - boldText.length)
                   )
                 )}
             </span>
             <span className="animate-pulse ml-1">|</span>
           </h1>
 
-          <p className="text-gray-100 text-lg md:text-xl font-extralight pt-2 max-w-2xl mx-auto opacity-90">
-            Advanced drones engineered for medical drones, surveillance,
+          <p className="text-gray-200 text-lg md:text-xl font-extralight pt-2 max-w-2xl mx-auto opacity-90">
+            Advanced drones engineered for medical delivery, surveillance,
             and groundbreaking infrastructure mapping.
           </p>
         </div>
@@ -70,8 +68,8 @@ const Drones = () => {
         ref={dronesRef}
         className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
       >
-        <h2 className="text-center text-4xl md:text-5xl font-light tracking-tight mb-14 text-white">
-          Our <span className="font-semibold text-white">Fleet</span>
+        <h2 className="text-center text-4xl md:text-5xl font-light tracking-tight mb-14">
+          Our <span className="font-semibold">Fleet</span>
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -89,7 +87,29 @@ const Drones = () => {
         drone={selectedDrone}
         onClose={() => setSelectedDrone(null)}
       />
-      {/* ---------------- END PROJECTS ---------------- */}
+
+      {/* Background animation styles */}
+      <style>
+        {`
+          .bg-animated {
+            background: linear-gradient(
+              -45deg,
+              #0f172a,
+              #1e3a8a,
+              #0ea5e9,
+              #1e40af
+            );
+            background-size: 400% 400%;
+            animation: gradientShift 12s ease infinite;
+          }
+
+          @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+        `}
+      </style>
     </div>
   );
 };
