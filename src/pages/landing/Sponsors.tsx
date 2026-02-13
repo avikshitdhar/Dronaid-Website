@@ -27,8 +27,7 @@ const Sponsors = () => {
 
     let raf: number;
 
-    const speed =
-      window.innerWidth < 768 ? 0.4 : 0.7; // slower on mobile
+    const speed = window.innerWidth < 768 ? 0.4 : 0.7;
 
     const tick = () => {
       posRef.current -= speed;
@@ -48,16 +47,17 @@ const Sponsors = () => {
   return (
     <section
       id="sponsors"
-      className="bg-black text-white py-20 md:min-h-screen
-                 flex flex-col justify-center"
+      className="bg-black text-white py-16 md:py-24"
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-6 w-full">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-light">
             Our Sponsors
           </h2>
-          <p className="text-gray-400 max-w-3xl mx-auto text-sm md:text-base">
+
+          <p className="text-gray-400 text-base md:text-lg max-w-3xl mx-auto mt-4 leading-relaxed">
             We collaborate with industry leaders who support innovation,
             engineering excellence, and real-world impact.
           </p>
@@ -90,22 +90,24 @@ const Sponsors = () => {
         {/* CTA */}
         <div className="mt-16 md:mt-20 text-center">
           <div
-            className="inline-block border border-gray-700 rounded-xl
+            className="inline-block border border-gray-900
                        p-6 md:p-8 max-w-xl"
           >
-            <h3 className="text-xl md:text-2xl font-light mb-3">
+            <h3 className="text-xl md:text-2xl font-semibold mb-4 text-blue-600 uppercase tracking-widest">
               Become a Sponsor
             </h3>
-            <p className="text-gray-400 mb-6 text-sm md:text-base">
+
+            <p className="text-gray-400 text-base md:text-lg mb-6 leading-relaxed">
               Partner with us to support cutting-edge drone research
               and student-driven innovation.
             </p>
+
             <a
               href="/contact"
               className="inline-block px-6 md:px-8 py-3
                          border border-white text-white
                          hover:bg-white hover:text-black
-                         transition-colors rounded-full"
+                         transition-colors rounded-lg"
             >
               Get in Touch
             </a>

@@ -190,7 +190,7 @@ const mobileOVariants = {
 
           <Link
             to="/" state={{ scrollTo: "about" }}
-            className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-semibold transition-colors"
+            className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gray-300 hover:bg-[#559e90] text-black rounded-lg font-semibold transition-colors"
           >
             <Play className="mr-2" size={18} />
             About Us
@@ -198,7 +198,7 @@ const mobileOVariants = {
 
           <Link
             to="/competitions"
-            className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-semibold transition-colors group"
+            className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gray-300 hover:bg-[#559e90] text-black rounded-lg font-semibold transition-colors group"
           >
             Our Achievements
             <ArrowRight
