@@ -20,7 +20,7 @@ const CompetitionHero = () => {
       <div className="absolute inset-0 z-0" />
 
       {/* Content */}
-      <div className="relative z-10 flex h-full items-center">
+      <div className="relative z-10 flex h-full items-start lg:items-center pt-20 lg:pt-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
           <div className="max-w-4xl animate-slideUp">
             <p className="text-xs sm:text-sm tracking-[0.3em] uppercase text-gray-400 mb-4 sm:mb-6">
