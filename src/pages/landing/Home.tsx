@@ -124,38 +124,38 @@ const mobileOVariants = {
         <div className="mb-8 sm:mb-12 flex justify-center items-center h-32 sm:h-40 md:h-56">
           <div className="relative w-full max-w-4xl flex justify-center items-center">
             {isMobile ? (
-  <motion.div
-    variants={mobileOVariants}
-    initial="hidden"
-    animate="visible"
-    className="absolute"
-  >
-    <img
-      src={`${base}images/o-nobg.png`}
-      alt="O"
-      className="h-32 object-contain drop-shadow-lg"
-    />
-  </motion.div>
-) : (
-  letters.map((letter, index) => (
-    <motion.div
-      key={index}
-      variants={letterVariants(index)}
-      initial="hidden"
-      animate="visible"
-      className="absolute"
-    >
-      <img
-        src={letter.image}
-        alt={letter.char}
-        className="h-20 sm:h-28 md:h-40 lg:h-48 object-contain drop-shadow-lg"
-        style={{
-          transform: `scale(${letter.scale})`,
-        }}
-      />
-    </motion.div>
-  ))
-)}
+              <motion.div
+                variants={mobileOVariants}
+                initial="hidden"
+                animate="visible"
+                className="absolute"
+              >
+                <img
+                  src={`${base}team-logo.jpeg`}
+                  alt="O"
+                  className="h-32 object-contain drop-shadow-lg"
+                />
+              </motion.div>
+            ) : (
+              letters.map((letter, index) => (
+                <motion.div
+                  key={index}
+                  variants={letterVariants(index)}
+                  initial="hidden"
+                  animate="visible"
+                  className="absolute"
+                >
+                  <img
+                    src={letter.image}
+                    alt={letter.char}
+                    className="h-20 sm:h-28 md:h-40 lg:h-48 object-contain drop-shadow-lg"
+                    style={{
+                      transform: `scale(${letter.scale})`,
+                    }}
+                  />
+                </motion.div>
+              ))
+            )}
 
           </div>
         </div>
