@@ -99,9 +99,9 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex justify-center bg-black overflow-hidden items-start sm:items-center"
+      className="min-h-screen flex justify-center items-center bg-black overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-16 text-center w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 text-center w-full">
         {/* Animated Flying Letters */}
         <div className="mb-8 sm:mb-12 flex justify-center items-center h-32 sm:h-40 md:h-56">
           <div className="relative w-full max-w-4xl flex justify-center items-center">
@@ -150,7 +150,7 @@ const Home = () => {
             to="/"
             state={{ scrollTo: "about" }}
             className="inline-flex items-center justify-center
-              px-4 py-2 text-sm
+              px-3 py-3 text-sm
               sm:px-8 sm:py-4 sm:text-base
               bg-gray-300 hover:bg-[#559e90]
               text-black rounded-lg font-semibold transition-colors"
@@ -162,7 +162,7 @@ const Home = () => {
           <Link
             to="/competitions"
             className="inline-flex items-center justify-center
-              px-4 py-2 text-sm
+              px-3 py-3 text-sm
               sm:px-8 sm:py-4 sm:text-base
               bg-gray-300 hover:bg-[#559e90]
               text-black rounded-lg font-semibold transition-colors group"
