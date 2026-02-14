@@ -10,6 +10,7 @@ import CompetitionDetail from "./pages/competitions/competitionDetail";
 import ScrollToComponent from "./pages/landing/scrollToComponent";
 import { ScrollProvider } from "./pages/landing/scrollContext";
 import ScrollToTop from "./components/scrollToTop";
+import NotFound from "./notFound";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/competitions" element={<Competitions />} />
             <Route path="/competitions/:slug" element={<CompetitionDetail />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
 
