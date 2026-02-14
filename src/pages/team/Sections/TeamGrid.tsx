@@ -1,7 +1,7 @@
 import { Linkedin, Mail, User, Github } from "lucide-react";
 import { motion } from "framer-motion";
 import { TeamMember } from "../types";
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 
 interface Props {
   groupedMembers: Record<string, TeamMember[]>;
@@ -34,43 +34,7 @@ const TeamGrid = ({ groupedMembers }: Props) => {
     () => Object.values(groupedMembers).flat(),
     [groupedMembers]
   );
-
-  const visibleMembers = useMemo(
-    () => allMembers.slice(0, 8),
-    [allMembers]
-  );
   /* ------------------------------------------ */
-
-  /* ---------------- IMAGE PRELOAD ---------------- */
-  useEffect(() => {
-    const preload = (members: TeamMember[]) => {
-      members
-        .map(m => m.image)
-        .filter(Boolean)
-        .forEach(src => {
-          const img = new Image();
-          img.src = src!;
-        });
-    };
-
-    // Preload visible cards immediately
-    preload(visibleMembers);
-
-    // Preload remaining cards when browser is idle
-    const idle =
-      "requestIdleCallback" in window
-        ? requestIdleCallback(() => preload(allMembers))
-        : setTimeout(() => preload(allMembers), 200);
-
-    return () => {
-      if ("cancelIdleCallback" in window) {
-        cancelIdleCallback(idle as number);
-      } else {
-        clearTimeout(idle as number);
-      }
-    };
-  }, [visibleMembers, allMembers]);
-  /* ---------------------------------------------- */
 
   return (
     <div
@@ -120,8 +84,10 @@ const TeamGrid = ({ groupedMembers }: Props) => {
                 <img
                   src={member.image}
                   alt={member.name}
-                  loading="eager"
+                  loading="lazy"
                   decoding="async"
+                  width={128}
+                  height={128}
                   className="w-full h-full object-cover"
                 />
               ) : (

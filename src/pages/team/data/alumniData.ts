@@ -66,7 +66,7 @@ export const alumniByYear: AlumniByYear = {
     { name: "Ayan Verma", designation: "Management Head", image: `${base}alumni/21/ayan.webp` },
     { name: "Kushagra Bhatt", designation: "", image: `${base}alumni/21/khushagra.webp` },
     { name: "Divyanshu Rath", designation: "OS Member", image: `${base}alumni/21/divyanshu.webp` },
-    { name: "Siddhartha Reddy Lingala Bayanna", designation: "", image: `${base}alumni/21/siddhartha.png` },
+    { name: "Siddhartha Reddy Lingala Bayanna", designation: "", image: `${base}alumni/21/siddhartha.webp` },
     { name: "Smeet Dedhia", designation: "", image: `${base}alumni/21/smeet.webp` },
   ],
   "2020": [
