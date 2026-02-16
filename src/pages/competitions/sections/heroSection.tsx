@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const heroImage = {
-  image: `/images/o-nobg.png`,
+  image: `/images/o-nobg.webp`,
   delay: 0.1,
   scale: 1,
   side: "right",

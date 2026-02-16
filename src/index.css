@@ -54,3 +54,9 @@ body {
 .animate-fadeIn {
   animation: fadeIn 0.6s ease-out;
 }
+
+@layer utilities {
+  .min-h-screen {
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
+}

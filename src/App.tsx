@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Landing from "./pages/landing/Landing";
@@ -13,6 +15,20 @@ import ScrollToTop from "./components/scrollToTop";
 import NotFound from "./notFound";
 
 function App() {
+  // ✅ GLOBAL mobile viewport height fix (correct hook usage)
+  useEffect(() => {
+    const setVh = () => {
+      document.documentElement.style.setProperty(
+        "--vh",
+        `${window.innerHeight * 0.01}px`
+      );
+    };
+
+    setVh();
+    window.addEventListener("resize", setVh);
+    return () => window.removeEventListener("resize", setVh);
+  }, []);
+
   return (
     <ScrollProvider>
       <div className="min-h-screen bg-gray-950 text-white">
