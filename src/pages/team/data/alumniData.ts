@@ -21,6 +21,7 @@ export const alumniByYear: AlumniByYear = {
     { name: "Gautam Gupta", designation: "Software Member", image: `${base}alumni/24/gautam.webp` },
     { name: "Yash Bharadwaj", designation: "Software Member", image: `${base}alumni/24/yash.webp` },
     { name: "Sankhya Podagatlaballi", designation: "Electronics Member", image: `${base}alumni/24/saankhya.webp` },
+    { name: "Medha Kalwar", designation:"Management Member", image: `${base}members/medha.webp`}
   ],
   "2023": [
     { name: "Prakhar Ganeriwal", designation: "Technical Head", image: `${base}alumni/23/prakhar.webp` },

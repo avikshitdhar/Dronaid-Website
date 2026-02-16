@@ -227,15 +227,6 @@ export const teamMembers: TeamMember[] = [
 
     //management
     {
-      name: "Medha Kalwar",
-      designation: "Management Team Member",
-      department: "Management",
-      image: `${base}members/medha.webp`,
-      linkedin: "https://www.linkedin.com/in/medha-kalwar-?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-      email: "medhakalwar@gmail.com",
-      github: "https://github.com/medj-builds",
-    },
-    {
       name: "Devika Rajeev",
       designation: "Management Team Member",
       department: "Management",
