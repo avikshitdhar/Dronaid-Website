@@ -31,7 +31,7 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation (UNCHANGED) */}
           <div className="hidden md:flex space-x-6">
             {navLinks.map((link) => (
               <Link
@@ -49,28 +49,29 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button (WHITE for contrast) */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-gray-700 hover:text-blue-600"
+            className="md:hidden text-white hover:text-gray-300"
+            aria-label="Toggle menu"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation (FIXED CONTRAST) */}
         {isMenuOpen && (
-          <div className="md:hidden flex flex-col border-t border-gray-200">
+          <div className="md:hidden flex flex-col bg-black border-t border-gray-800">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsMenuOpen(false)}
-                className={`px-4 py-3 text-sm font-medium transition-colors
+                className={`px-4 py-4 text-sm font-medium transition-colors
                   ${
                     isActive(link.path)
-                      ? 'text-blue-600'
-                      : 'text-gray-700 hover:text-blue-600'
+                      ? 'text-white underline underline-offset-4'
+                      : 'text-white hover:opacity-80'
                   }`}
               >
                 {link.label}
