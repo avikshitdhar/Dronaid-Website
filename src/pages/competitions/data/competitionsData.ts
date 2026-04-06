@@ -5,6 +5,22 @@ const base = import.meta.env.BASE_URL;
 export const competitions: Competition[] = [
   {
     name: "Quark Search and Rescue",
+    date: "February 2026",
+    location: "Goa, India",
+    description:
+      "Quark is the annual techno-management fest of the college, BITS Pilani KK Birla Goa Campus. It has a variety of events, workshops, guest lectures and more. Our team competed with the Murphy and placed 3rd.",
+    achievements: [
+      "First Runners Up",
+    ],
+    media: {
+      images: [
+        `${base}competitions/26/quarks1.jpeg`,
+        // `${base}competitions/26/quarks1.jpg`,
+      ],
+    },
+  },
+  {
+    name: "Quark Search and Rescue",
     date: "February 2025",
     location: "Goa, India",
     description:

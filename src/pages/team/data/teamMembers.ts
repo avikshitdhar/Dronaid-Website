@@ -23,13 +23,12 @@ export const teamMembers: TeamMember[] = [
 
     // Board
     {
-      name: "Varun B",
+      name: "Aditi Nair",
       designation: "Electronics Head",
       department: "Board",
-      image: `${base}members/varun.webp`,
-      linkedin: "https://www.linkedin.com/in/varun-bramhankar-92a520271/",
-      email: "varunvpb@gmail.com",
-      github: "https://github.com/Varunvpb",
+      image: `${base}members/aditi.webp`,
+      linkedin: "https://www.linkedin.com/in/aditi-nair-28b086305/",
+      email: "aditinair0910@gmail.com",
     },
     {
       name: "Parag Gupta",
@@ -65,28 +64,21 @@ export const teamMembers: TeamMember[] = [
 
     //Electronics
     {
-      name: "Aditi Nair",
+      name: "Varun B",
       designation: "Electronics Team Member",
       department: "Electronics",
-      image: `${base}members/aditi.webp`,
-      linkedin: "www.linkedin.com/in/aditi-nair-28b086305",
-      email: "aditinair0910@gmail.com",
+      image: `${base}members/varun.webp`,
+      linkedin: "https://www.linkedin.com/in/varun-bramhankar-92a520271/",
+      email: "varunvpb@gmail.com",
+      github: "https://github.com/Varunvpb",
     },
     {
       name: "Kevin Siby",
       designation: "Electronics Team Member",
       department: "Electronics",
       image: `${base}members/kevin.webp`,
-      linkedin: "www.linkedin.com/in/kevin-siby-94a12b391",
+      linkedin: "https://www.linkedin.com/in/kevin-siby-94a12b391/",
       email: "contactkevin2005@gmail.com",
-    },
-    {
-      name: "Aditi Tiwari",
-      designation: "Electronics Team Member",
-      department: "Electronics",
-      image: `${base}members/aditiT.webp`,
-      linkedin: "https://www.linkedin.com/in/aditi-tiwari-24ab34306/",
-      email: "aditi2005t@gmail.com",
     },
 
     {
@@ -149,15 +141,6 @@ export const teamMembers: TeamMember[] = [
       github: "https://github.com/bluecode-hub",
     },
     {
-      name: "Aviral Nigam",
-      designation: "AI & Automation Team Member",
-      department: "AI & Automation",
-      image: `${base}members/aviral.webp`,
-      linkedin: "www.linkedin.com/in/aviral-nigam-a0b469271",
-      email: "nigamaviral21@gmail.com",
-      github: "https://github.com/Aviral0gHub",
-    },
-    {
       name: "Shaurya Raizada",
       designation: "AI & Automation Team Member",
       department: "AI & Automation",
@@ -203,7 +186,7 @@ export const teamMembers: TeamMember[] = [
       designation: "DFM Team Member",
       department: "DFM",
       image: `${base}members/sourajit.webp`,
-      linkedin: "www.linkedin.com/in/sourajit-saha-9a006836b",
+      linkedin: "https://www.linkedin.com/in/sourajit-saha-9a006836b/",
       email: "sourajit.mitmpl2024@learner.manipal.edu",
     },
     {
@@ -232,6 +215,6 @@ export const teamMembers: TeamMember[] = [
       department: "Management",
       image: `${base}members/devika.webp`,
       email: "rajeevdevika567@gmail.com",
-      linkedin: "www.linkedin.com/in/devika-rajeev-3734863ab",
+      linkedin: "https://www.linkedin.com/in/devika-rajeev-3734863ab/",
     },
 ];
